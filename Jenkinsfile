@@ -1,9 +1,7 @@
 pipeline {
 
   // Donde se va a ejecutar el Pipeline
-  agent {
-    label 'gestion-licitaciones'
-  }
+  agent any
 
   // Opciones específicas de Pipeline dentro del Pipeline
   options {
