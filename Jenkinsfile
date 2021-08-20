@@ -1,7 +1,9 @@
 pipeline {
 
   // Donde se va a ejecutar el Pipeline
-  agent any
+  agent {
+    label 'Slave_Induccion'
+  }
 
   // Opciones específicas de Pipeline dentro del Pipeline
   options {
@@ -49,8 +51,8 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Compile & Unit Tests<------------"
-        sh 'chmod +x gradlew'
-		sh './gradlew --b ./build.gradle test'
+        sh 'chmod +x ./microservicio/gradlew'
+		sh './microservicio/gradlew --b ./microservicio/build.gradle test'
       }
     }
 
@@ -67,7 +69,7 @@ pipeline {
       steps {
         echo "------------>Build<------------"
         // Construir sin tarea test que se ejecutó previamente
-        sh './gradlew --b ./build.gradle build -x test'
+        sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
       }
     }  
   }
@@ -78,11 +80,11 @@ pipeline {
     }
     success {
       echo 'This will run only if successful'
-      junit 'build/test-results/test/*.xml' // Ruta de los archivos.XML
+      // junit 'build/test-results/test/*.xml' // Ruta de los archivos.XML
     }
     failure {
       echo 'This will run only if failed'
-      mail (to: 'harvin.rengifo@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}")
+      // mail (to: 'harvin.rengifo@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}")
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'
