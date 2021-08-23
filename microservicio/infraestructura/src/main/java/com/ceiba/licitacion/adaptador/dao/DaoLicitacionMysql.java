@@ -7,6 +7,7 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.licitacion.modelo.dto.DtoLicitacion;
 import com.ceiba.licitacion.puerto.dao.DaoLicitacion;
 
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,6 +17,9 @@ public class DaoLicitacionMysql implements DaoLicitacion {
 
     @SqlStatement(namespace="licitacion", value="listar")
     private static String sqlListar;
+    
+    @SqlStatement(namespace="licitacion", value="buscarPorId")
+    private static String sqlBuscarPorId;
 
     public DaoLicitacionMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -25,4 +29,11 @@ public class DaoLicitacionMysql implements DaoLicitacion {
     public List<DtoLicitacion> listar() {
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoLicitacion());
     }
+
+	@Override
+	public DtoLicitacion buscarPorId(Long id) {
+		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("id", id);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarPorId, mapSqlParameterSource, new MapeoLicitacion());
+	}
 }

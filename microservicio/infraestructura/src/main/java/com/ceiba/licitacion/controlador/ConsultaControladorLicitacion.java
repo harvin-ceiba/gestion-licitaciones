@@ -3,6 +3,7 @@ package com.ceiba.licitacion.controlador;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/licitaciones")
-@Api(tags={"Controlador consulta usuario"})
+@Api(tags={"Controlador consulta Licitaciones"})
 public class ConsultaControladorLicitacion {
 
     private final ManejadorListarLicitaciones manejadorListarLicitaciones;
@@ -26,7 +27,13 @@ public class ConsultaControladorLicitacion {
     @GetMapping
     @ApiOperation("Listar Licitaciones")
     public List<DtoLicitacion> listar() {
-        return this.manejadorListarLicitaciones.ejecutar();
+        return this.manejadorListarLicitaciones.listar();
+    }
+    
+    @GetMapping(value = "/{id}")
+    @ApiOperation("Buscar Licitación por Id")
+    public DtoLicitacion buscarPorId(@PathVariable Long id) {
+        return this.manejadorListarLicitaciones.buscarPorId(id);
     }
 
 }

@@ -16,5 +16,11 @@ public class ManejadorListarLicitaciones {
         this.daoLicitacion = daoLicitacion;
     }
 
-    public List<DtoLicitacion> ejecutar(){ return this.daoLicitacion.listar(); }
+    public List<DtoLicitacion> listar(){ 
+    	return this.daoLicitacion.listar(); 
+    }
+    
+    public DtoLicitacion buscarPorId(Long id) {
+    	return this.daoLicitacion.buscarPorId(id);
+    }
 }

@@ -11,4 +11,10 @@ public interface DaoLicitacion {
      * @return las licitaciones
      */
     List<DtoLicitacion> listar();
+    
+    /**
+     * Permite buscar una Licitación por Id
+     * @return la Licitación
+     */
+    DtoLicitacion buscarPorId(Long id);
 }
