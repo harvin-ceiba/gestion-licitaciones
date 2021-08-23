@@ -13,7 +13,7 @@ public interface RepositorioLicitacion {
 
     /**
      * Permite actualizar una licitacion
-     * @param usuario
+     * @param licitacion
      */
     void actualizar(Licitacion licitacion);
 
