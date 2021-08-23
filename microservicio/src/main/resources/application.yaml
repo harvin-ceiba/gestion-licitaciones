@@ -16,6 +16,6 @@ spring:
       type: com.zaxxer.hikari.HikariDataSource
       jdbcUrl: jdbc:mysql://localhost:3306/licitaciones?autoReconnect=true&useSSL=false
       username: root
-      password: ENC(b6Oa4so0wGBy2HzTNpZk0P5KUFoeESIu)
+      password: root
       hikari:
          poolName: pool
