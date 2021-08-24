@@ -30,4 +30,11 @@ public class ConsultaControladorPropuesta {
         return this.manejadorListarPropuestas.listar(idLicitacion);
     }
     
+    @GetMapping(value="/{idPropuesta}")
+    @ApiOperation("Obtener Propuesta")
+    public DtoPropuesta buscarPorId(@PathVariable Long idPropuesta) {
+        return this.manejadorListarPropuestas.buscarPorId(idPropuesta);
+    }
+    
+    
 }
