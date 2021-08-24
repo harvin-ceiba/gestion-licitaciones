@@ -1,0 +1,1 @@
+SELECT COUNT(1) FROM propuesta WHERE licitacion_id = :licitacionId AND nombre = :nombre
