@@ -62,6 +62,12 @@ public class ValidadorArgumento {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
+    
+    public static void validarEntre(Long numero, Long numeroInicial, Long numeroFinal, String mensaje) {
+        if (numero < numeroInicial || numero > numeroFinal){
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
 
     public static void validarMenor(Long numeroInicial, Long numeroFinal, String mensaje) {
         if (numeroInicial > numeroFinal) {

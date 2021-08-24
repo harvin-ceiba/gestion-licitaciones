@@ -4,15 +4,18 @@ import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
 import com.ceiba.usuario.servicio.ServicioCrearUsuario;
 import com.ceiba.usuario.servicio.ServicioEliminarUsuario;
+import com.ceiba.licitacion.puerto.dao.DaoLicitacion;
 import com.ceiba.licitacion.puerto.repositorio.RepositorioLicitacion;
 import com.ceiba.licitacion.servicio.ServicioActualizarLicitacion;
 import com.ceiba.licitacion.servicio.ServicioCrearLicitacion;
 import com.ceiba.licitacion.servicio.ServicioEliminarLicitacion;
 import com.ceiba.licitacion.servicio.ServicioPublicarLicitacion;
+import com.ceiba.licitacion_requerimiento.puerto.dao.DaoLicitacionRequerimiento;
 import com.ceiba.licitacion_requerimiento.puerto.repositorio.RepositorioLicitacionRequerimiento;
 import com.ceiba.licitacion_requerimiento.servicio.ServicioActualizarLicitacionRequerimiento;
 import com.ceiba.licitacion_requerimiento.servicio.ServicioCrearLicitacionRequerimiento;
 import com.ceiba.licitacion_requerimiento.servicio.ServicioEliminarLicitacionRequerimiento;
+import com.ceiba.propuesta.puerto.dao.DaoPropuesta;
 import com.ceiba.propuesta.puerto.repositorio.RepositorioPropuesta;
 import com.ceiba.propuesta.servicio.ServicioActualizarPropuesta;
 import com.ceiba.propuesta.servicio.ServicioCrearPropuesta;
@@ -66,8 +69,8 @@ public class BeanServicio {
     }
     
     @Bean
-    public ServicioPublicarLicitacion servicioPublicarLicitacion(RepositorioLicitacion repositorioLicitacion) {
-        return new ServicioPublicarLicitacion(repositorioLicitacion);
+    public ServicioPublicarLicitacion servicioPublicarLicitacion(RepositorioLicitacion repositorioLicitacion, DaoLicitacionRequerimiento daoLicitacionRequerimiento) {
+        return new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
     }
 
     
@@ -131,8 +134,8 @@ public class BeanServicio {
     }
     
     @Bean
-    public ServicioPublicarPropuesta servicioPublicarPropuesta(RepositorioPropuesta repositorioPropuesta) {
-        return new ServicioPublicarPropuesta(repositorioPropuesta);
+    public ServicioPublicarPropuesta servicioPublicarPropuesta(RepositorioPropuesta repositorioPropuesta, DaoPropuesta daoPropuesta, DaoLicitacion daoLicitacion) {
+        return new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
     }
     
     /* Servicios Módulo de Requerimientos de las Propuestas */
