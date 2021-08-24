@@ -17,7 +17,7 @@ public class ServicioPublicarPropuesta {
     	validarExistenciaPrevia(idPropuesta);
         this.repositorioPropuesta.publicar(idPropuesta);
     }
-
+    
     private void validarExistenciaPrevia(Long idPropuesta) {
     	boolean existe = this.repositorioPropuesta.existe(idPropuesta);
         if(!existe) {

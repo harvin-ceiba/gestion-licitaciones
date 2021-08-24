@@ -18,6 +18,9 @@ public class DaoPropuestaMysql implements DaoPropuesta {
     @SqlStatement(namespace="propuesta", value="listar")
     private static String sqlListar;
     
+    @SqlStatement(namespace="propuesta", value="buscarPorId")
+    private static String sqlBuscarPorId;
+    
     public DaoPropuestaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -31,7 +34,9 @@ public class DaoPropuestaMysql implements DaoPropuesta {
 
 	@Override
 	public DtoPropuesta buscarPorId(Long id) {
-		return null;
-	}
+		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("id", id);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarPorId, mapSqlParameterSource, new MapeoPropuesta());
+    }
     
 }

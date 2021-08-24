@@ -42,8 +42,8 @@ public class ComandoControladorPropuesta {
     
     @DeleteMapping(value="/{idPropuesta}")
 	@ApiOperation("Eliminar la Propuesta de la Licitación")
-	public void eliminar(@PathVariable Long idPropuesta) {
-		manejadorEliminarPropuesta.ejecutar(idPropuesta);
+	public void eliminar(@PathVariable Long idLicitacion, @PathVariable Long idPropuesta) {
+		manejadorEliminarPropuesta.ejecutar(idLicitacion, idPropuesta);
 	}
 
 	@PutMapping(value="/{idPropuesta}")
