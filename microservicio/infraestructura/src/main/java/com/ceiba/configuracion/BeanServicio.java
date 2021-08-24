@@ -18,6 +18,9 @@ import com.ceiba.propuesta.servicio.ServicioActualizarPropuesta;
 import com.ceiba.propuesta.servicio.ServicioCrearPropuesta;
 import com.ceiba.propuesta.servicio.ServicioEliminarPropuesta;
 import com.ceiba.propuesta.servicio.ServicioPublicarPropuesta;
+import com.ceiba.propuesta_requerimiento.puerto.repositorio.RepositorioPropuestaRequerimiento;
+import com.ceiba.propuesta_requerimiento.servicio.ServicioCrearPropuestaRequerimiento;
+import com.ceiba.propuesta_requerimiento.servicio.ServicioEliminarPropuestaRequerimiento;
 import com.ceiba.requerimiento.puerto.repositorio.RepositorioRequerimiento;
 import com.ceiba.requerimiento.servicio.ServicioActualizarRequerimiento;
 import com.ceiba.requerimiento.servicio.ServicioCrearRequerimiento;
@@ -88,35 +91,43 @@ public class BeanServicio {
     /* Servicios Módulo de Requerimientos de las Licitaciones */
     
     @Bean
-    public ServicioCrearLicitacionRequerimiento servicioCrearLicitacionRequerimiento(RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento) {
-        return new ServicioCrearLicitacionRequerimiento(repositorioLicitacionRequerimiento);
+    public ServicioCrearLicitacionRequerimiento servicioCrearLicitacionRequerimiento(RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento,
+    		RepositorioLicitacion repositorioLicitacion,
+    		RepositorioRequerimiento repositorioRequerimiento) {
+        return new ServicioCrearLicitacionRequerimiento(repositorioLicitacionRequerimiento, repositorioLicitacion, repositorioRequerimiento);
     }
 
     @Bean
-    public ServicioEliminarLicitacionRequerimiento servicioEliminarLicitacionRequerimiento(RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento) {
-        return new ServicioEliminarLicitacionRequerimiento(repositorioLicitacionRequerimiento);
+    public ServicioEliminarLicitacionRequerimiento servicioEliminarLicitacionRequerimiento(
+    		RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento,
+    		RepositorioLicitacion repositorioLicitacion,
+    		RepositorioRequerimiento repositorioRequerimiento) {
+        return new ServicioEliminarLicitacionRequerimiento(repositorioLicitacionRequerimiento, repositorioLicitacion, repositorioRequerimiento);
     }
 
     @Bean
-    public ServicioActualizarLicitacionRequerimiento servicioActualizarLicitacionRequerimiento(RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento) {
-        return new ServicioActualizarLicitacionRequerimiento(repositorioLicitacionRequerimiento);
+    public ServicioActualizarLicitacionRequerimiento servicioActualizarLicitacionRequerimiento(
+    		RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento,
+    		RepositorioLicitacion repositorioLicitacion,
+    		RepositorioRequerimiento repositorioRequerimiento) {
+        return new ServicioActualizarLicitacionRequerimiento(repositorioLicitacionRequerimiento, repositorioLicitacion, repositorioRequerimiento);
     }
     
     /* Servicios Módulo de Propuestas */
     
     @Bean
-    public ServicioCrearPropuesta servicioCrearPropuesta(RepositorioPropuesta repositorioPropuesta) {
-        return new ServicioCrearPropuesta(repositorioPropuesta);
+    public ServicioCrearPropuesta servicioCrearPropuesta(RepositorioPropuesta repositorioPropuesta, RepositorioLicitacion repositorioLicitacion) {
+        return new ServicioCrearPropuesta(repositorioPropuesta, repositorioLicitacion);
     }
 
     @Bean
-    public ServicioEliminarPropuesta servicioEliminarPropuesta(RepositorioPropuesta repositorioPropuesta) {
-        return new ServicioEliminarPropuesta(repositorioPropuesta);
+    public ServicioEliminarPropuesta servicioEliminarPropuesta(RepositorioPropuesta repositorioPropuesta, RepositorioLicitacion repositorioLicitacion) {
+        return new ServicioEliminarPropuesta(repositorioPropuesta, repositorioLicitacion);
     }
 
     @Bean
-    public ServicioActualizarPropuesta servicioActualizarPropuesta(RepositorioPropuesta repositorioPropuesta) {
-        return new ServicioActualizarPropuesta(repositorioPropuesta);
+    public ServicioActualizarPropuesta servicioActualizarPropuesta(RepositorioPropuesta repositorioPropuesta, RepositorioLicitacion repositorioLicitacion) {
+        return new ServicioActualizarPropuesta(repositorioPropuesta, repositorioLicitacion);
     }
     
     @Bean
@@ -124,4 +135,21 @@ public class BeanServicio {
         return new ServicioPublicarPropuesta(repositorioPropuesta);
     }
     
+    /* Servicios Módulo de Requerimientos de las Propuestas */
+    
+    @Bean
+    public ServicioCrearPropuestaRequerimiento servicioCrearPropuestaRequerimiento(RepositorioPropuestaRequerimiento repositorioPropuestaRequerimiento,
+    		RepositorioPropuesta repositorioPropuesta,
+    		RepositorioRequerimiento repositorioRequerimiento) {
+        return new ServicioCrearPropuestaRequerimiento(repositorioPropuestaRequerimiento, repositorioPropuesta, repositorioRequerimiento);
+    }
+
+    @Bean
+    public ServicioEliminarPropuestaRequerimiento servicioEliminarPropuestaRequerimiento(
+    		RepositorioPropuestaRequerimiento repositorioPropuestaRequerimiento,
+    		RepositorioPropuesta repositorioPropuesta,
+    		RepositorioRequerimiento repositorioRequerimiento) {
+        return new ServicioEliminarPropuestaRequerimiento(repositorioPropuestaRequerimiento, repositorioPropuesta, repositorioRequerimiento);
+    }
+
 }
