@@ -44,7 +44,7 @@ public class ComandoControladorRequerimiento {
 
 	@PutMapping(value="/{id}")
 	@ApiOperation("Actualizar Requerimiento")
-	public void actualizar(@RequestBody ComandoRequerimiento comandoRequerimiento,@PathVariable Long id) {
+	public void actualizar(@RequestBody ComandoRequerimiento comandoRequerimiento, @PathVariable Long id) {
 		comandoRequerimiento.setId(id);
 		manejadorActualizarRequerimiento.ejecutar(comandoRequerimiento);
 	}
