@@ -22,7 +22,14 @@ public interface RepositorioRequerimiento {
      * @param id
      */
     void eliminar(Long id);
-
+    
+    /**
+     * Permite validar si existe un requerimiento con el id definido
+     * @param id
+     * @return si existe o no
+     */
+    boolean existe(Long id);
+    
     /**
      * Permite validar si existe un requerimiento con una descripcion
      * @param descripcion

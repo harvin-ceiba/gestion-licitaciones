@@ -20,9 +20,12 @@ public class RepositorioRequerimientoMysql implements RepositorioRequerimiento {
 
     @SqlStatement(namespace="requerimiento", value="eliminar")
     private static String sqlEliminar;
-
+    
     @SqlStatement(namespace="requerimiento", value="existe")
     private static String sqlExiste;
+
+    @SqlStatement(namespace="requerimiento", value="existeDescripcion")
+    private static String sqlExisteDescripcion;
 
     @SqlStatement(namespace="requerimiento", value="existeExcluyendoId") 
     private static String sqlExisteExcluyendoId;
@@ -42,12 +45,19 @@ public class RepositorioRequerimientoMysql implements RepositorioRequerimiento {
         paramSource.addValue("id", id);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
+    
+    @Override
+    public boolean existe(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+    }
 
     @Override
     public boolean existe(String descripcion) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("descripcion", descripcion);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteDescripcion,paramSource, Boolean.class);
     }
 
     @Override
