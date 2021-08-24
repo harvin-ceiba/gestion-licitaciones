@@ -50,6 +50,12 @@ public class ValidadorArgumento {
             throw new ExcepcionLongitudValor(mensaje);
         }
     }
+    
+    public static void validarLongitudMaxima(Object valor, int longitudMaxima, String mensaje) {
+        if (valor.toString().length() > longitudMaxima) {
+            throw new ExcepcionLongitudValor(mensaje);
+        }
+    }
 
     public static void validarMenor(LocalDateTime fechaInicial, LocalDateTime fechaFinal, String mensaje) {
         if (fechaInicial.toLocalDate().isAfter(fechaFinal.toLocalDate())) {
@@ -90,6 +96,14 @@ public class ValidadorArgumento {
     public static void validarNumerico(String valor,String mensaje) {
         try {
             Long.parseLong(valor);
+        } catch (NumberFormatException numberFormatException) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+    
+    public static void validarNumericoV2(String valor, String mensaje) {
+        try {
+            Double.parseDouble(valor);
         } catch (NumberFormatException numberFormatException) {
             throw new ExcepcionValorInvalido(mensaje);
         }
