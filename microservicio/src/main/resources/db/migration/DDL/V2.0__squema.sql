@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS propuesta (
   descripcion TEXT NOT NULL,
   nombre_cliente VARCHAR(125) NOT NULL,
   valor DECIMAL NOT NULL,
+  fecha_creacion datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  fecha_publicacion datetime null,
   estado TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (id),
    CONSTRAINT fk_propuesta_licitacion_1
@@ -55,9 +57,11 @@ CREATE TABLE IF NOT EXISTS licitacion_requerimiento (
 
 
 CREATE TABLE IF NOT EXISTS propuesta_requerimiento (
+  id INT NOT NULL AUTO_INCREMENT, 
   propuesta_id INT NOT NULL,
   requerimiento_id INT NOT NULL,
-  PRIMARY KEY (propuesta_id, requerimiento_id),
+  PRIMARY KEY (id),
+  UNIQUE INDEX uk_propuesta_requerimiento (propuesta_id, requerimiento_id),
   CONSTRAINT fk_propuesta_requerimiento_1
     FOREIGN KEY (propuesta_id)
     REFERENCES propuesta (id)

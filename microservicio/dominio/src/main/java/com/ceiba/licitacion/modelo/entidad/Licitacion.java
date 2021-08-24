@@ -49,7 +49,7 @@ public class Licitacion {
         validarLongitudMaxima(codigo, LONGITUD_MAXIMA_CODIGO, String.format(CODIGO_DEBE_TENER_UNA_LONGITUD_MENOR_O_IGUAL_A, LONGITUD_MAXIMA_CODIGO));
         validarLongitudMaxima(nombre, LONGITUD_MAXIMA_NOMBRE, String.format(NOMBRE_DEBE_TENER_UNA_LONGITUD_MENOR_O_IGUAL_A, LONGITUD_MAXIMA_NOMBRE));
         
-        validarNumericoV2(String.valueOf(presupuesto), PRESUPUESTO_DEBE_SER_UN_VALOR_NUMERICO);
+        validarNumericoDouble(String.valueOf(presupuesto), PRESUPUESTO_DEBE_SER_UN_VALOR_NUMERICO);
         validarPositivo(presupuesto, PRESUPUESTO_DEBE_SER_UN_VALOR_POSITIVO);
         validarMenor(fechaInicio.toEpochDay(), fechaFin.toEpochDay(), FECHA_INICIAL_DEBE_SER_MENOR_A_FECHA_FINAL);
         

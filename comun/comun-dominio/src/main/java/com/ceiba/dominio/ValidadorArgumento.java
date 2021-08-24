@@ -101,10 +101,16 @@ public class ValidadorArgumento {
         }
     }
     
-    public static void validarNumericoV2(String valor, String mensaje) {
+    public static void validarNumericoDouble(String valor, String mensaje) {
         try {
             Double.parseDouble(valor);
         } catch (NumberFormatException numberFormatException) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+    
+    public static void validarMayor(String numeroInicial, String numeroFinal, String mensaje) {
+        if (Double.parseDouble(numeroInicial) > Double.parseDouble(numeroFinal)) {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
