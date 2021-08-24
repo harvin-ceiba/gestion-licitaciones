@@ -23,9 +23,15 @@ public class RepositorioLicitacionMysql implements RepositorioLicitacion {
 
     @SqlStatement(namespace="licitacion", value="existe")
     private static String sqlExiste;
+    
+    @SqlStatement(namespace="licitacion", value="existeCodigo")
+    private static String sqlExisteCodigo;
 
     @SqlStatement(namespace="licitacion", value="existeExcluyendoId") 
     private static String sqlExisteExcluyendoId;
+    
+    @SqlStatement(namespace="licitacion", value="publicar")
+    private static String sqlPublicar;
 
     public RepositorioLicitacionMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -42,12 +48,19 @@ public class RepositorioLicitacionMysql implements RepositorioLicitacion {
         paramSource.addValue("id", id);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
+    
+    @Override
+    public boolean existeId(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+    }
 
     @Override
-    public boolean existe(String codigo) {
+    public boolean existeCodigo(String codigo) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("codigo", codigo);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCodigo,paramSource, Boolean.class);
     }
 
     @Override
@@ -61,5 +74,12 @@ public class RepositorioLicitacionMysql implements RepositorioLicitacion {
         paramSource.addValue("id", id);
         paramSource.addValue("codigo", codigo);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
+    }
+    
+    @Override
+    public void publicar(Long id) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlPublicar, paramSource);
     }
 }

@@ -1,1 +1,1 @@
-SELECT COUNT(1) FROM licitacion WHERE codigo = :codigo
+SELECT COUNT(1) FROM licitacion WHERE id = :id

@@ -28,7 +28,7 @@ public interface RepositorioLicitacion {
      * @param codigo
      * @return si existe o no
      */
-    boolean existe(String codigo);
+    boolean existeCodigo(String codigo);
 
     /**
      * Permite validar si existe una licitacion con un codigo excluyendo un id
@@ -36,5 +36,18 @@ public interface RepositorioLicitacion {
      * @return si existe o no
      */
     boolean existeExcluyendoId(Long id, String codigo);
+    
+    /**
+     * Permite validar si existe una licitacion con un id
+     * @param id
+     * @return si existe o no
+     */
+    boolean existeId(Long id);
+    
+    /**
+     * Permite publicar una licitacion
+     * @param id
+     */
+    void publicar(Long id);
 
 }
