@@ -59,9 +59,9 @@ pipeline {
     stage('Static Code Analysis') {
       steps{
         echo '------------>Análisis de código estático<------------'
-        // withSonarQubeEnv('Sonar') {
-		//	sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
-        // }
+        withSonarQubeEnv('Sonar') {
+			sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+        }
       }
     }
 
@@ -69,7 +69,7 @@ pipeline {
       steps {
         echo "------------>Build<------------"
         // Construir sin tarea test que se ejecutó previamente
-        // sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
+        sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
       }
     }  
   }
@@ -80,7 +80,7 @@ pipeline {
     }
     success {
       echo 'This will run only if successful'
-      // junit 'build/test-results/test/*.xml' // Ruta de los archivos.XML
+      junit 'build/test-results/test/*.xml' // Ruta de los archivos.XML
     }
     failure {
       echo 'This will run only if failed'

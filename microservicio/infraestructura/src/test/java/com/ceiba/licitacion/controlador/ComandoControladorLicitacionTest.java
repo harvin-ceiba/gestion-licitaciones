@@ -6,8 +6,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
@@ -23,6 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @WebMvcTest(ComandoControladorLicitacion.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ComandoControladorLicitacionTest {
 	
 	@Autowired
@@ -32,9 +35,9 @@ public class ComandoControladorLicitacionTest {
 	private MockMvc mocMvc;
 
 	@Test
-    public void crear() throws Exception {
+    public void paso1CrearLicitacionTest() throws Exception {
         // arrange
-        ComandoLicitacion licitacion = new ComandoLicitacionTestDataBuilder().build();
+        ComandoLicitacion licitacion = new ComandoLicitacionTestDataBuilder().withCodigo("002").build();
 
         // act - assert
         mocMvc.perform(post("/licitaciones")
@@ -45,11 +48,10 @@ public class ComandoControladorLicitacionTest {
     }
 
 	@Test
-	public void actualizar() throws Exception {
+	public void paso2ActualizarLicitacionTest() throws Exception {
 		// arrange
-        Long id = 1L;
-        ComandoLicitacion licitacion = new ComandoLicitacionTestDataBuilder().build();
-
+        Long id = 2L;
+        ComandoLicitacion licitacion = new ComandoLicitacionTestDataBuilder().withCodigo("002").build();
         // act - assert
         mocMvc.perform(put("/licitaciones/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -58,10 +60,9 @@ public class ComandoControladorLicitacionTest {
 	}
 	
     @Test
-    public void eliminar() throws Exception {
+    public void paso3EliminarLicitacionTest() throws Exception {
         // arrange
-        Long id = 1L;
-
+        Long id = 2L;
         // act - assert
         mocMvc.perform(delete("/licitaciones/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)

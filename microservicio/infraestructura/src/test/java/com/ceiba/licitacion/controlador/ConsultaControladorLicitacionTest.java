@@ -26,7 +26,7 @@ public class ConsultaControladorLicitacionTest {
     private MockMvc mocMvc;
 
     @Test
-    public void listar() throws Exception {
+    public void listarLicitaciones() throws Exception {
     	// arrange
 
         // act - assert
@@ -34,13 +34,16 @@ public class ConsultaControladorLicitacionTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].codigo", is("001")));
+                .andExpect(jsonPath("$[0].codigo", is("001")))
+                .andExpect(jsonPath("$[0].nombre", is("LICITACION1")))
+		    	.andExpect(jsonPath("$[0].descripcion", is("DESCRIPCION1")));
     }
     
     @Test
-    public void buscarPorId() throws Exception {
+    public void buscarLicitacionPorId() throws Exception {
     	// arrange
     	Long id = 1L;
+
         // act - assert
         mocMvc.perform(get("/licitaciones/{id}", id)
         		.contentType(MediaType.APPLICATION_JSON))

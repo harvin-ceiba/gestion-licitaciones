@@ -7,8 +7,9 @@ import java.util.UUID;
 
 public class ComandoLicitacionTestDataBuilder {
 	
-	private static final String VALOR_CODIGO = "002";
+	private static final String VALOR_CODIGO = "001";
 	private static final int VALOR_ESTADO = 0;
+	private static final double VALOR_PRESUPUESTO = 10000000;
 	private static final LocalDate VALOR_FECHA_INICIAL = LocalDate.of(2021, 8, 1);
 	private static final LocalDate VALOR_FECHA_FINAL = LocalDate.of(2021, 8, 31);
 
@@ -23,12 +24,32 @@ public class ComandoLicitacionTestDataBuilder {
 
     public ComandoLicitacionTestDataBuilder() {
     	codigo = VALOR_CODIGO;
-    	nombre = UUID.randomUUID().toString();;
-    	descripcion = UUID.randomUUID().toString();;
-    	presupuesto = 10000000;
+    	nombre = UUID.randomUUID().toString();
+    	descripcion = UUID.randomUUID().toString();
+    	presupuesto = VALOR_PRESUPUESTO;
     	fechaInicio = VALOR_FECHA_INICIAL;
     	fechaFin = VALOR_FECHA_FINAL;
     	estado = VALOR_ESTADO;
+    }
+    
+    public ComandoLicitacionTestDataBuilder withId(Long id) {
+        this.id = id;
+        return this;
+    }
+    
+    public ComandoLicitacionTestDataBuilder withCodigo(String codigo) {
+        this.codigo = codigo;
+        return this;
+    }
+    
+    public ComandoLicitacionTestDataBuilder withFechaInicio(LocalDate fechaInicio) {
+    	this.fechaInicio = fechaInicio;
+    	return this;
+    }
+    
+    public ComandoLicitacionTestDataBuilder withFechaFin(LocalDate fechaFin) {
+    	this.fechaFin = fechaFin;
+    	return this;
     }
     
     public ComandoLicitacion build() {
