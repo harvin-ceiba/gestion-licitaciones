@@ -17,16 +17,6 @@ public class ComandoRequerimientoTestDataBuilder {
     	estado = VALOR_ESTADO;
     }
     
-    public ComandoRequerimientoTestDataBuilder withId(Long id) {
-        this.id = id;
-        return this;
-    }
-    
-    public ComandoRequerimientoTestDataBuilder withDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-        return this;
-    }
-    
     public ComandoRequerimiento build() {
         return new ComandoRequerimiento(id, descripcion, estado);
     }

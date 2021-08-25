@@ -32,24 +32,9 @@ public class ComandoLicitacionTestDataBuilder {
     	estado = VALOR_ESTADO;
     }
     
-    public ComandoLicitacionTestDataBuilder withId(Long id) {
-        this.id = id;
-        return this;
-    }
-    
     public ComandoLicitacionTestDataBuilder withCodigo(String codigo) {
         this.codigo = codigo;
         return this;
-    }
-    
-    public ComandoLicitacionTestDataBuilder withFechaInicio(LocalDate fechaInicio) {
-    	this.fechaInicio = fechaInicio;
-    	return this;
-    }
-    
-    public ComandoLicitacionTestDataBuilder withFechaFin(LocalDate fechaFin) {
-    	this.fechaFin = fechaFin;
-    	return this;
     }
     
     public ComandoLicitacion build() {

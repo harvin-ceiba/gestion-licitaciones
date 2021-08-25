@@ -30,36 +30,6 @@ public class ComandoPropuestaTestDataBuilder {
     	estado = VALOR_ESTADO;
     }
     
-    public ComandoPropuestaTestDataBuilder withId(Long id) {
-        this.id = id;
-        return this;
-    }
-    
-    public ComandoPropuestaTestDataBuilder withLicitacionId(Long licitacionId) {
-        this.licitacionId = licitacionId;
-        return this;
-    }
-    
-    public ComandoPropuestaTestDataBuilder withValor(double valor) {
-        this.valor = valor;
-        return this;
-    }
-    
-    public ComandoPropuestaTestDataBuilder withFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-        return this;
-    }
-    
-    public ComandoPropuestaTestDataBuilder withFechaPublicacion(LocalDateTime fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
-        return this;
-    }
-    
-    public ComandoPropuestaTestDataBuilder withEstado(int estado) {
-        this.estado = estado;
-        return this;
-    }
-    
     public ComandoPropuesta build() {
         return new ComandoPropuesta(id, licitacionId, nombre, descripcion, nombreCliente, valor, fechaCreacion, fechaPublicacion, estado);
         		

@@ -19,21 +19,6 @@ public class ComandoLicitacionRequerimientoTestDataBuilder {
     	pesoPorcentual = VALOR_PESO_PORCENTUAL;
     }
     
-    public ComandoLicitacionRequerimientoTestDataBuilder withId(Long id) {
-        this.id = id;
-        return this;
-    }
-    
-    public ComandoLicitacionRequerimientoTestDataBuilder withLicitacionId(Long licitacionId) {
-        this.licitacionId = licitacionId;
-        return this;
-    }
-    
-    public ComandoLicitacionRequerimientoTestDataBuilder withRequerimientoId(Long requerimientoId) {
-        this.requerimientoId = requerimientoId;
-        return this;
-    }
-    
     public ComandoLicitacionRequerimientoTestDataBuilder withPesoPorcentualId(double pesoPorcentual) {
         this.pesoPorcentual = pesoPorcentual;
         return this;
