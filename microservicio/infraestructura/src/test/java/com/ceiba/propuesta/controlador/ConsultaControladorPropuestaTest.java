@@ -1,4 +1,4 @@
-package com.ceiba.licitacion.controlador;
+package com.ceiba.propuesta.controlador;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
@@ -19,37 +19,39 @@ import com.ceiba.ApplicationMock;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest(ConsultaControladorLicitacion.class)
-public class ConsultaControladorLicitacionTest {
+@WebMvcTest(ConsultaControladorPropuesta.class)
+public class ConsultaControladorPropuestaTest {
 
 	@Autowired
     private MockMvc mocMvc;
 
     @Test
-    public void listarLicitacionesTest() throws Exception {
+    public void listarPropuestasTest() throws Exception {
     	// arrange
+    	Long idLicitacion = 1L;
 
         // act - assert
-        mocMvc.perform(get("/licitaciones")
+        mocMvc.perform(get("/licitaciones/{idLicitacion}/propuestas", idLicitacion)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].codigo", is("001")))
-                .andExpect(jsonPath("$[0].nombre", is("LICITACION1")))
+                .andExpect(jsonPath("$[0].licitacionId", is(1)))
+                .andExpect(jsonPath("$[0].nombre", is("PROPUESTA1")))
 		    	.andExpect(jsonPath("$[0].descripcion", is("DESCRIPCION1")));
     }
     
     @Test
-    public void buscarLicitacionPorIdTest() throws Exception {
+    public void buscarPropuestaPorIdTest() throws Exception {
     	// arrange
-    	Long id = 1L;
+    	Long idLicitacion = 1L;
+    	Long idPropuesta = 1L;
 
         // act - assert
-        mocMvc.perform(get("/licitaciones/{id}", id)
+        mocMvc.perform(get("/licitaciones/{idLicitacion}/propuestas/{idPropuesta}", idLicitacion, idPropuesta)
         		.contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.codigo", is("001")))
-                .andExpect(jsonPath("$.nombre", is("LICITACION1")))
+                .andExpect(jsonPath("$.licitacionId", is(1)))
+                .andExpect(jsonPath("$.nombre", is("PROPUESTA1")))
 		    	.andExpect(jsonPath("$.descripcion", is("DESCRIPCION1")));
     }
 

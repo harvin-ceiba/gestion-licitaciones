@@ -8,3 +8,8 @@ INSERT INTO requerimiento (id, descripcion, estado) VALUES (3, 'REQUERIMIENTO3',
 
 INSERT INTO licitacion_requerimiento (licitacion_id, requerimiento_id, peso_porcentual) VALUES (1, 1, 40);
 INSERT INTO licitacion_requerimiento (licitacion_id, requerimiento_id, peso_porcentual) VALUES (1, 2, 60);
+
+INSERT INTO propuesta (licitacion_id, nombre, descripcion, nombre_cliente, valor) VALUES (1, 'PROPUESTA1', 'DESCRIPCION1', 'CLIENTE1', 9500000);
+
+INSERT INTO propuesta_requerimiento (propuesta_id, requerimiento_id) VALUES (1, 1);
+INSERT INTO propuesta_requerimiento (propuesta_id, requerimiento_id) VALUES (1, 2);

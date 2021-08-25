@@ -26,7 +26,7 @@ public class ConsultaControladorRequerimientoTest {
     private MockMvc mocMvc;
 
     @Test
-    public void listarRequerimientos() throws Exception {
+    public void listarRequerimientosTest() throws Exception {
     	// arrange
 
         // act - assert
