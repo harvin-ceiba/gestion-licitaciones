@@ -1,4 +1,4 @@
-package com.ceiba.licitacion.servicio.testdatabuilder;
+package com.ceiba.licitacion.controlador.testdatabuilder;
 
 import com.ceiba.licitacion.comando.ComandoLicitacion;
 

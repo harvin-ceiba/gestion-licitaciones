@@ -1,4 +1,4 @@
-package com.ceiba.licitacion_requerimiento.servicio.testdatabuilder;
+package com.ceiba.licitacion_requerimiento.controlador.testdatabuilder;
 
 import com.ceiba.licitacion_requerimiento.comando.ComandoLicitacionRequerimiento;
 

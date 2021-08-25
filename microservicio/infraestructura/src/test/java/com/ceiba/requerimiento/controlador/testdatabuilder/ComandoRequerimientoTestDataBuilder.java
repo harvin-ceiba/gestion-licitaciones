@@ -1,4 +1,4 @@
-package com.ceiba.requerimiento.servicio.testdatabuilder;
+package com.ceiba.requerimiento.controlador.testdatabuilder;
 
 import com.ceiba.requerimiento.comando.ComandoRequerimiento;
 

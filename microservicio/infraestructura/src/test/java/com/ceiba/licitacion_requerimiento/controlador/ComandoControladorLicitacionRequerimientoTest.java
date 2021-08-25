@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.licitacion_requerimiento.comando.ComandoLicitacionRequerimiento;
-import com.ceiba.licitacion_requerimiento.servicio.testdatabuilder.ComandoLicitacionRequerimientoTestDataBuilder;
+import com.ceiba.licitacion_requerimiento.controlador.testdatabuilder.ComandoLicitacionRequerimientoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)

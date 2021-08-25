@@ -1,4 +1,4 @@
-package com.ceiba.propuesta.servicio.testdatabuilder;
+package com.ceiba.propuesta.controlador.testdatabuilder;
 
 import com.ceiba.propuesta.comando.ComandoPropuesta;
 
