@@ -68,7 +68,20 @@ public class ServicioPublicarLicitacionTest {
 	}
     
     @Test
-    public void validarPublicacionLicitacionSinRequerimientosTest() {
+    public void validarPublicacionLicitacionSinRequerimientosNullTest() {
+		// arrange
+        RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
+        DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
+        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(daoLicitacionRequerimiento.listar(VALOR_ID)).thenReturn(null);
+        ServicioPublicarLicitacion servicioPublicarLicitacion = new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
+
+        // act - assert
+        BasePrueba.assertThrows(() -> servicioPublicarLicitacion.ejecutar(VALOR_ID), ExcepcionSinDatos.class, LA_LICITACION_NO_SE_PUEDE_PUBLICAR_SIN_REQUERIMIENTOS);
+    }
+    
+    @Test
+    public void validarPublicacionLicitacionSinRequerimientosEmptyTest() {
 		// arrange
     	List<DtoLicitacionRequerimiento> licitacionRequerimientos = new ArrayList<>();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
