@@ -24,7 +24,7 @@ public interface RepositorioLicitacionRequerimiento {
     void eliminar(Long licitacionId, Long requerimientoId);
 
     /**
-     * Permite validar si existe un Requerimiento específico en una Licitacion
+     * Permite validar si existe un Requerimiento especifico en una Licitacion
      * @param requerimientoId
      * @return si existe o no
      */

@@ -24,7 +24,7 @@ public class Propuesta {
     private static final int LONGITUD_MAXIMA_NOMBRE_DEL_CLIENTE = 125;
     
     private static final String VALOR_DEBE_SER_NUMERICO = "El valor de la propuesta debe ser numerico";
-    private static final String VALOR_DEBE_SER_NUMERO_POSITIVO = "El valor de la propuesta debe ser un número positivo";
+    private static final String VALOR_DEBE_SER_NUMERO_POSITIVO = "El valor de la propuesta debe ser un numero positivo";
 	    
 	private Long id;
 	private Long licitacionId;

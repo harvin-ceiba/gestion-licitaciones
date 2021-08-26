@@ -18,7 +18,7 @@ public interface RepositorioPropuestaRequerimiento {
     void eliminar(Long propuestaId, Long requerimientoId);
 
     /**
-     * Permite validar si existe un Requerimiento específico en una Propuesta
+     * Permite validar si existe un Requerimiento especifico en una Propuesta
      * @param requerimientoId
      * @return si existe o no
      */
