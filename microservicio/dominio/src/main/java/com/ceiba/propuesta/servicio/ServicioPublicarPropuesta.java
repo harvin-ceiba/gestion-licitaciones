@@ -15,6 +15,7 @@ import com.ceiba.propuesta.puerto.repositorio.RepositorioPropuesta;
 public class ServicioPublicarPropuesta {
 
     private static final String LA_PROPUESTA_NO_EXISTE = "La propuesta que intenta publicar no existe";
+    private static final String LA_LICITACION_NO_EXISTE = "La licitación asociada a la propuesta no existe";
     private static final String LA_PROPUESTA_NO_SE_ENCUENTRA_DENTRO_DEL_RANGO_DE_LICITACION = "La propuesta no se encuentra dentro del rango de la licitación";
     private static final String LA_LICITACION_NO_SE_ENCUENTRA_ACTIVA = "La licitación no se encuentra activa";
     private static final int VALOR_ESTADO_ACTIVO = 1;
@@ -32,7 +33,7 @@ public class ServicioPublicarPropuesta {
     public void ejecutar(Long idPropuesta) {
     	validarExistenciaPrevia(idPropuesta);
     	DtoPropuesta propuestaDto = obtenerPropuesta(idPropuesta);
-    	DtoLicitacion licitacionDto = obtenerLicitacion(propuestaDto);
+    	DtoLicitacion licitacionDto = obtenerLicitacion(propuestaDto.getLicitacionId());
     	validarRangoFechasLicitacion(licitacionDto);
     	validarEstadoLicitacion(licitacionDto);
         this.repositorioPropuesta.publicar(idPropuesta);
@@ -46,14 +47,19 @@ public class ServicioPublicarPropuesta {
     }
     
     private DtoPropuesta obtenerPropuesta(Long idPropuesta) {
-    	return this.daoPropuesta.buscarPorId(idPropuesta);
-    }
-    
-    private DtoLicitacion obtenerLicitacion(DtoPropuesta propuestaDto) {
-    	if(propuestaDto == null) {
+    	DtoPropuesta dtoPropuesta = this.daoPropuesta.buscarPorId(idPropuesta);
+    	if(dtoPropuesta == null) {
     		throw new ExcepcionValorInvalido(LA_PROPUESTA_NO_EXISTE);
     	}
-    	return this.daoLicitacion.buscarPorId(propuestaDto.getLicitacionId());
+    	return dtoPropuesta;
+    }
+    
+    private DtoLicitacion obtenerLicitacion(Long idLicitacion) {
+    	DtoLicitacion dtoLicitacion = this.daoLicitacion.buscarPorId(idLicitacion);
+    	if(dtoLicitacion == null) {
+    		throw new ExcepcionValorInvalido(LA_LICITACION_NO_EXISTE);
+    	}
+    	return dtoLicitacion;
     }
     
     private void validarRangoFechasLicitacion(DtoLicitacion licitacionDto) {
@@ -72,8 +78,6 @@ public class ServicioPublicarPropuesta {
     }
     
     private Long convertirLocalDateToMilliseconds(LocalDate localDate) {
-    	if(localDate != null)
-    		return localDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
-    	return 0L;
+    	return localDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 }
