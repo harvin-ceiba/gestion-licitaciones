@@ -6,12 +6,24 @@ import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
 
 import com.ceiba.BasePrueba;
 
 public class ServicioCrearUsuarioTest {
 
+    @Test
+    public void validarCreacionUsuarioTest() {
+        // arrange
+        Usuario usuario = new UsuarioTestDataBuilder().build();
+        RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
+        Mockito.when(repositorioUsuario.existe(Mockito.anyString())).thenReturn(false);
+        ServicioCrearUsuario servicioCrearUsuario = new ServicioCrearUsuario(repositorioUsuario);
+        // act - assert
+        Assertions.assertDoesNotThrow(() -> servicioCrearUsuario.ejecutar(usuario));
+    }
+    
     @Test
     public void validarClaveLongitudMenor4Test() {
         // arrange
