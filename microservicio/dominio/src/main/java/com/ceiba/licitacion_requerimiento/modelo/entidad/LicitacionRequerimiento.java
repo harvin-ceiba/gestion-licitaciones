@@ -8,7 +8,7 @@ import lombok.Getter;
 public class LicitacionRequerimiento {
 	
 	private static final String PESO_PORCENTUAL_DEBE_TENER_UN_VALOR_MAXIMO_DE = "El peso porcentual debe tener un valor máximo de %s";
-	private static final int VALOR_MAXIMO_PESO_PORCENTUAL = 100;
+	private static final double VALOR_MAXIMO_PESO_PORCENTUAL = 100D;
 	    
     private static final String PESO_PORCENTUAL_DEBE_SER_UN_VALOR_NUMERICO = "El peso porcentual debe ser un valor numérico";
     private static final String PESO_PORCENTUAL_DEBE_SER_UN_VALOR_POSITIVO = "El peso porcentual debe ser un valor positivo";

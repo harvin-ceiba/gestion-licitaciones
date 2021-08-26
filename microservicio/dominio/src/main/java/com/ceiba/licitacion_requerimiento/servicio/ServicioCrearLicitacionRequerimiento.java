@@ -9,9 +9,9 @@ import com.ceiba.licitacion.puerto.repositorio.RepositorioLicitacion;
 
 public class ServicioCrearLicitacionRequerimiento {
 
-    private static final String LA_LICITACION_PROPUESTA_NO_EXISTE = "La Licitación no existe en el sistema";
+	private static final String EL_REQUERIMIENTO_YA_EXISTE_EN_LA_LICITACION = "El Requerimiento ya se encuentra asociado a la Licitación";
+    private static final String LA_LICITACION_NO_EXISTE = "La Licitación no existe en el sistema";
     private static final String EL_REQUERIMIENTO_NO_EXISTE = "El Requerimiento no existe en el sistema";
-    private static final String EL_REQUERIMIENTO_YA_EXISTE_EN_LA_LICITACION = "El Requerimiento ya se encuentra asociado a la Licitación";
 
     private final RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento;
     private final RepositorioLicitacion repositorioLicitacion;
@@ -26,16 +26,23 @@ public class ServicioCrearLicitacionRequerimiento {
     }
 
     public Long ejecutar(LicitacionRequerimiento licitacionRequerimiento) {
+    	validarExistenciaPrevia(licitacionRequerimiento);
     	validarExistenciaLicitacion(licitacionRequerimiento.getLicitacionId());
     	validarExistenciaRequerimiento(licitacionRequerimiento.getRequerimientoId());
-        validarExistenciaPrevia(licitacionRequerimiento);
         return this.repositorioLicitacionRequerimiento.crear(licitacionRequerimiento);
+    }
+    
+    private void validarExistenciaPrevia(LicitacionRequerimiento licitacionRequerimiento) {
+    	boolean existe = this.repositorioLicitacionRequerimiento.existe(licitacionRequerimiento.getLicitacionId(), licitacionRequerimiento.getRequerimientoId());
+    	if(existe) {
+    		throw new ExcepcionDuplicidad(EL_REQUERIMIENTO_YA_EXISTE_EN_LA_LICITACION);
+    	}
     }
     
     private void validarExistenciaLicitacion(Long licitacionId) {
         boolean existe = this.repositorioLicitacion.existeId(licitacionId);
         if(!existe) {
-            throw new ExcepcionValorInvalido(LA_LICITACION_PROPUESTA_NO_EXISTE);
+            throw new ExcepcionValorInvalido(LA_LICITACION_NO_EXISTE);
         }
     }
     
@@ -46,10 +53,4 @@ public class ServicioCrearLicitacionRequerimiento {
         }
     }
 
-    private void validarExistenciaPrevia(LicitacionRequerimiento licitacionRequerimiento) {
-        boolean existe = this.repositorioLicitacionRequerimiento.existe(licitacionRequerimiento.getLicitacionId(), licitacionRequerimiento.getRequerimientoId());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_REQUERIMIENTO_YA_EXISTE_EN_LA_LICITACION);
-        }
-    }
 }
