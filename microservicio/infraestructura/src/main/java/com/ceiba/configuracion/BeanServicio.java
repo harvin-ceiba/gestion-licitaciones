@@ -21,7 +21,6 @@ import com.ceiba.propuesta.servicio.ServicioActualizarPropuesta;
 import com.ceiba.propuesta.servicio.ServicioCrearPropuesta;
 import com.ceiba.propuesta.servicio.ServicioEliminarPropuesta;
 import com.ceiba.propuesta.servicio.ServicioPublicarPropuesta;
-import com.ceiba.propuesta_requerimiento.puerto.dao.DaoPropuestaRequerimiento;
 import com.ceiba.propuesta_requerimiento.puerto.repositorio.RepositorioPropuestaRequerimiento;
 import com.ceiba.propuesta_requerimiento.servicio.ServicioCrearPropuestaRequerimiento;
 import com.ceiba.propuesta_requerimiento.servicio.ServicioEliminarPropuestaRequerimiento;
@@ -135,9 +134,8 @@ public class BeanServicio {
     }
     
     @Bean
-    public ServicioPublicarPropuesta servicioPublicarPropuesta(RepositorioPropuesta repositorioPropuesta, DaoPropuesta daoPropuesta, DaoLicitacion daoLicitacion,
-    		DaoPropuestaRequerimiento daoPropuestaRequerimiento, DaoLicitacionRequerimiento daoLicitacionRequerimiento) {
-        return new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion, daoPropuestaRequerimiento, daoLicitacionRequerimiento);
+    public ServicioPublicarPropuesta servicioPublicarPropuesta(RepositorioPropuesta repositorioPropuesta, DaoPropuesta daoPropuesta, DaoLicitacion daoLicitacion) {
+        return new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
     }
     
     /* Servicios Modulo de Requerimientos de las Propuestas */
