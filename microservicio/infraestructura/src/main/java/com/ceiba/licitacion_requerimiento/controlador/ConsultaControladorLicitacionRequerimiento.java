@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/licitaciones/{idLicitacion}/requerimientos")
-@Api(tags={"Controlador consulta de Requerimientos de una Licitación"})
+@Api(tags={"Controlador consulta de Requerimientos de una Licitacion"})
 public class ConsultaControladorLicitacionRequerimiento {
 
     private final ManejadorListarLicitacionRequerimientos manejadorListarLicitacionRequerimientos;

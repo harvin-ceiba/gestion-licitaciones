@@ -12,9 +12,9 @@ import lombok.Getter;
 @Getter
 public class Propuesta {
 	
-	private static final String SE_DEBE_INGRESAR_LA_LICITACION = "Se debe ingresar el identificador de la Licitación";
+	private static final String SE_DEBE_INGRESAR_LA_LICITACION = "Se debe ingresar el identificador de la Licitacion";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE = "Se debe ingresar el nombre de la propuesta";
-    private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar la descripción de la propuesta";
+    private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar la descripcion de la propuesta";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE = "Se debe ingresar el nombre del cliente";
     private static final String SE_DEBE_INGRESAR_EL_VALOR = "Se debe ingresar el valor de la propuesta";
     

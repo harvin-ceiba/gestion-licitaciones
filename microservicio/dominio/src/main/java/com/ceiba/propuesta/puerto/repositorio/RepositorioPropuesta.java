@@ -31,7 +31,7 @@ public interface RepositorioPropuesta {
     boolean existe(Long id);
 
     /**
-     * Permite validar si existe una Propuesta de una Licitación con un nombre
+     * Permite validar si existe una Propuesta de una Licitacion con un nombre
      * @param idLicitacion
      * @param nombre
      * @return si existe o no
@@ -39,7 +39,7 @@ public interface RepositorioPropuesta {
     boolean existeIncluyendoIdLicitacion(Long licitacionId, String nombre);
 
     /**
-     * Permite validar si existe una Propuesta de una Licitación con un codigo excluyendo un id
+     * Permite validar si existe una Propuesta de una Licitacion con un codigo excluyendo un id
      * @param idLicitacion
      * @param nombre
      * @return si existe o no

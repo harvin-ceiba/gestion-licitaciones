@@ -13,8 +13,8 @@ import com.ceiba.licitacion.servicio.testdatabuilder.LicitacionTestDataBuilder;
 
 public class ServicioActualizarLicitacionTest {
 	
-    private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La licitación no existe en el sistema";
-    private static final String CODIGO_LICITACION_YA_EXISTE_EN_EL_SISTEMA = "Código licitación ya existe en el sistema";
+    private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La licitacion no existe en el sistema";
+    private static final String CODIGO_LICITACION_YA_EXISTE_EN_EL_SISTEMA = "Codigo licitacion ya existe en el sistema";
     
     private static final Long VALOR_ID = 1L;
 

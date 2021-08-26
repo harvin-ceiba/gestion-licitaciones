@@ -7,7 +7,7 @@ import java.util.List;
 public interface DaoPropuesta {
 
     /**
-     * Permite listar Propuestas de una Licitación
+     * Permite listar Propuestas de una Licitacion
      * @return las Propuestas
      */
     List<DtoPropuesta> listar(Long licitacionId);

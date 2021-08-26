@@ -36,7 +36,7 @@ public class ComandoControladorPropuestaPublicarTest {
 	
 	@Test
     public void publicarPropuestaExistenteTest() throws Exception {
-		// -- 1. Inicialmente se publica la licitación asociada
+		// -- 1. Inicialmente se publica la licitacion asociada
 		// arrange
         Long idLicitacion = 1L;
 

@@ -31,7 +31,7 @@ public class ConsultaControladorLicitacion {
     }
     
     @GetMapping(value = "/{id}")
-    @ApiOperation("Buscar Licitación por Id")
+    @ApiOperation("Buscar Licitacion por Id")
     public DtoLicitacion buscarPorId(@PathVariable Long id) {
         return this.manejadorListarLicitaciones.buscarPorId(id);
     }

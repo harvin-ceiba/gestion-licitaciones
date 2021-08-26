@@ -15,9 +15,9 @@ import com.ceiba.propuesta.puerto.repositorio.RepositorioPropuesta;
 public class ServicioPublicarPropuesta {
 
     private static final String LA_PROPUESTA_NO_EXISTE = "La propuesta que intenta publicar no existe";
-    private static final String LA_LICITACION_NO_EXISTE = "La licitación asociada a la propuesta no existe";
-    private static final String LA_PROPUESTA_NO_SE_ENCUENTRA_DENTRO_DEL_RANGO_DE_LICITACION = "La propuesta no se encuentra dentro del rango de la licitación";
-    private static final String LA_LICITACION_NO_SE_ENCUENTRA_ACTIVA = "La licitación no se encuentra activa";
+    private static final String LA_LICITACION_NO_EXISTE = "La licitacion asociada a la propuesta no existe";
+    private static final String LA_PROPUESTA_NO_SE_ENCUENTRA_DENTRO_DEL_RANGO_DE_LICITACION = "La propuesta no se encuentra dentro del rango de la licitacion";
+    private static final String LA_LICITACION_NO_SE_ENCUENTRA_ACTIVA = "La licitacion no se encuentra activa";
     private static final int VALOR_ESTADO_ACTIVO = 1;
 
     private final RepositorioPropuesta repositorioPropuesta;

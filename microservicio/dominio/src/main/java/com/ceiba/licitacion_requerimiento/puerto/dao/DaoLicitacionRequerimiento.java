@@ -7,7 +7,7 @@ import java.util.List;
 public interface DaoLicitacionRequerimiento {
 
     /**
-     * Permite listar los Requerimientos de la Licitación
+     * Permite listar los Requerimientos de la Licitacion
      * @return los Requerimientos
      */
     List<DtoLicitacionRequerimiento> listar(Long licitacionId);

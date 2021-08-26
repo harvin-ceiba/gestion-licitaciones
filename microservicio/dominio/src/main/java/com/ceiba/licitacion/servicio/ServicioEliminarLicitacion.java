@@ -5,7 +5,7 @@ import com.ceiba.licitacion.puerto.repositorio.RepositorioLicitacion;
 
 public class ServicioEliminarLicitacion {
 	
-    private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La licitación no existe en el sistema";
+    private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La licitacion no existe en el sistema";
 
     private final RepositorioLicitacion repositorioLicitacion;
 

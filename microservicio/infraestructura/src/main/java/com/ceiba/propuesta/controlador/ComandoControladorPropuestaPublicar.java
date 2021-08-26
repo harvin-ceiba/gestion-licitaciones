@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/propuestas/{idPropuesta}/publicar")
-@Api(tags={"Controlador publicación de Propuesta de una Licitación"})
+@Api(tags={"Controlador publicacion de Propuesta de una Licitacion"})
 public class ComandoControladorPropuestaPublicar {
 
     private final ManejadorPublicarPropuesta manejadorPublicarPropuesta;

@@ -17,9 +17,9 @@ import com.ceiba.licitacion_requerimiento.puerto.dao.DaoLicitacionRequerimiento;
 
 public class ServicioPublicarLicitacionTest {
 
-    private static final String LA_LICITACION_NO_EXISTE = "La licitación que intenta publicar no existe";
-    private static final String LA_LICITACION_NO_SE_PUEDE_PUBLICAR_SIN_REQUERIMIENTOS = "La licitación no se puede publicar sin requerimientos";
-    private static final String LA_SUMATORIA_DE_LOS_PORCENTAJES_DE_LICITACION_DEBE_SER_IGUAL_A = "La licitación no se puede publicar, el porcentaje de los requerimientos debe ser igual a %s";
+    private static final String LA_LICITACION_NO_EXISTE = "La licitacion que intenta publicar no existe";
+    private static final String LA_LICITACION_NO_SE_PUEDE_PUBLICAR_SIN_REQUERIMIENTOS = "La licitacion no se puede publicar sin requerimientos";
+    private static final String LA_SUMATORIA_DE_LOS_PORCENTAJES_DE_LICITACION_DEBE_SER_IGUAL_A = "La licitacion no se puede publicar, el porcentaje de los requerimientos debe ser igual a %s";
     
     private static final double PESO_PORCENTUAL_VALIDO_REQUERIMIENTO_1 = 40D;
     private static final double PESO_PORCENTUAL_VALIDO_REQUERIMIENTO_2 = 60D;

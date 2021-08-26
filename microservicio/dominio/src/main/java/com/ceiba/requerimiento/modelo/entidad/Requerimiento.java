@@ -8,8 +8,8 @@ import lombok.Getter;
 @Getter
 public class Requerimiento {
 	
-	private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar la descripción del requerimiento";
-    private static final String SE_DEBE_INGRESAR_EL_ESTADO = "Se debe ingresar el estado de la Licitación";
+	private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar la descripcion del requerimiento";
+    private static final String SE_DEBE_INGRESAR_EL_ESTADO = "Se debe ingresar el estado de la Licitacion";
     
     private static final String DESCRIPCION_DEBE_TENER_UNA_LONGITUD_MENOR_O_IGUAL_A = "La descripcion debe tener una longitud menor o igual a %s";
     private static final int LONGITUD_MAXIMA_DESCRIPCION = 125;

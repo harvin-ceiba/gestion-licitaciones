@@ -13,8 +13,8 @@ public interface DaoLicitacion {
     List<DtoLicitacion> listar();
     
     /**
-     * Permite buscar una Licitación por Id
-     * @return la Licitación
+     * Permite buscar una Licitacion por Id
+     * @return la Licitacion
      */
     DtoLicitacion buscarPorId(Long id);
 }

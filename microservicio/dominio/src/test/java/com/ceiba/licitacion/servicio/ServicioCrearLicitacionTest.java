@@ -13,7 +13,7 @@ import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
 public class ServicioCrearLicitacionTest {
 	
-	private static final String LA_LICITACION_YA_EXISTE_EN_EL_SISTEMA = "La licitación ya existe en el sistema";
+	private static final String LA_LICITACION_YA_EXISTE_EN_EL_SISTEMA = "La licitacion ya existe en el sistema";
 	
 	@Test
     public void validarCreacionLicitacionTest() {

@@ -51,7 +51,7 @@ public class BeanServicio {
     }
     
     
-    /* Servicios Módulo de Licitaciones */
+    /* Servicios Modulo de Licitaciones */
     
     @Bean
     public ServicioCrearLicitacion servicioCrearLicitacion(RepositorioLicitacion repositorioLicitacion) {
@@ -74,7 +74,7 @@ public class BeanServicio {
     }
 
     
-    /* Servicios Módulo de Requerimientos */
+    /* Servicios Modulo de Requerimientos */
     
     @Bean
     public ServicioCrearRequerimiento servicioCrearRequerimiento(RepositorioRequerimiento repositorioRequerimiento) {
@@ -91,7 +91,7 @@ public class BeanServicio {
         return new ServicioActualizarRequerimiento(repositorioRequerimiento);
     }
     
-    /* Servicios Módulo de Requerimientos de las Licitaciones */
+    /* Servicios Modulo de Requerimientos de las Licitaciones */
     
     @Bean
     public ServicioCrearLicitacionRequerimiento servicioCrearLicitacionRequerimiento(RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento,
@@ -116,7 +116,7 @@ public class BeanServicio {
         return new ServicioActualizarLicitacionRequerimiento(repositorioLicitacionRequerimiento, repositorioLicitacion, repositorioRequerimiento);
     }
     
-    /* Servicios Módulo de Propuestas */
+    /* Servicios Modulo de Propuestas */
     
     @Bean
     public ServicioCrearPropuesta servicioCrearPropuesta(RepositorioPropuesta repositorioPropuesta, RepositorioLicitacion repositorioLicitacion) {
@@ -138,7 +138,7 @@ public class BeanServicio {
         return new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
     }
     
-    /* Servicios Módulo de Requerimientos de las Propuestas */
+    /* Servicios Modulo de Requerimientos de las Propuestas */
     
     @Bean
     public ServicioCrearPropuestaRequerimiento servicioCrearPropuestaRequerimiento(RepositorioPropuestaRequerimiento repositorioPropuestaRequerimiento,

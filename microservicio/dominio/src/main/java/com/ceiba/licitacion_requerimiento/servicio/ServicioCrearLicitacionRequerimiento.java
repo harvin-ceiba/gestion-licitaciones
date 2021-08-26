@@ -9,8 +9,8 @@ import com.ceiba.licitacion.puerto.repositorio.RepositorioLicitacion;
 
 public class ServicioCrearLicitacionRequerimiento {
 
-	private static final String EL_REQUERIMIENTO_YA_EXISTE_EN_LA_LICITACION = "El Requerimiento ya se encuentra asociado a la Licitación";
-    private static final String LA_LICITACION_NO_EXISTE = "La Licitación no existe en el sistema";
+	private static final String EL_REQUERIMIENTO_YA_EXISTE_EN_LA_LICITACION = "El Requerimiento ya se encuentra asociado a la Licitacion";
+    private static final String LA_LICITACION_NO_EXISTE = "La Licitacion no existe en el sistema";
     private static final String EL_REQUERIMIENTO_NO_EXISTE = "El Requerimiento no existe en el sistema";
 
     private final RepositorioLicitacionRequerimiento repositorioLicitacionRequerimiento;

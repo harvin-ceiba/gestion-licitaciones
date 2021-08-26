@@ -8,9 +8,9 @@ import com.ceiba.propuesta.puerto.repositorio.RepositorioPropuesta;
 
 public class ServicioActualizarPropuesta {
 
-	private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La Licitación no existe en el sistema";
+	private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La Licitacion no existe en el sistema";
     private static final String LA_PROPUESTA_NO_EXISTE_EN_EL_SISTEMA = "La propuesta no existe en el sistema";
-    private static final String LA_PROPUESTA_SE_ENCUENTRA_ASOCIADA_A_LICITACION = "La propuesta ya se encuentra asociada a la Licitación";
+    private static final String LA_PROPUESTA_SE_ENCUENTRA_ASOCIADA_A_LICITACION = "La propuesta ya se encuentra asociada a la Licitacion";
 
     private final RepositorioLicitacion repositorioLicitacion;
     private final RepositorioPropuesta repositorioPropuesta;

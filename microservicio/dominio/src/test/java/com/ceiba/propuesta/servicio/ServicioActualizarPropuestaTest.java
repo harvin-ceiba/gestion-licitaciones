@@ -14,9 +14,9 @@ import com.ceiba.propuesta.testdatabuilder.PropuestaTestDataBuilder;
 
 public class ServicioActualizarPropuestaTest {
 	
-	private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La Licitación no existe en el sistema";
+	private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La Licitacion no existe en el sistema";
     private static final String LA_PROPUESTA_NO_EXISTE_EN_EL_SISTEMA = "La propuesta no existe en el sistema";
-    private static final String LA_PROPUESTA_SE_ENCUENTRA_ASOCIADA_A_LICITACION = "La propuesta ya se encuentra asociada a la Licitación";
+    private static final String LA_PROPUESTA_SE_ENCUENTRA_ASOCIADA_A_LICITACION = "La propuesta ya se encuentra asociada a la Licitacion";
  
     @Test
     public void validarActualizacionPropuestaTest() {

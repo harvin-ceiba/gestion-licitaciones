@@ -15,7 +15,7 @@ import com.ceiba.licitacion.puerto.repositorio.RepositorioLicitacion;
 
 public class ServicioCrearPropuestaTest {
 	
-	private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La Licitación no existe en el sistema";
+	private static final String LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA = "La Licitacion no existe en el sistema";
     private static final String LA_PROPUESTA_YA_EXISTE_EN_EL_SISTEMA = "La propuesta ya existe en el sistema";
 
 	@Test

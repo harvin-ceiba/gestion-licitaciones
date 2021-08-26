@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/licitaciones/{idLicitacion}/propuestas")
-@Api(tags = { "Controlador comando Propuestas de Licitación"})
+@Api(tags = { "Controlador comando Propuestas de Licitacion"})
 public class ComandoControladorPropuesta {
 
     private final ManejadorCrearPropuesta manejadorCrearPropuesta;
@@ -32,7 +32,7 @@ public class ComandoControladorPropuesta {
     }
 
     @PostMapping
-    @ApiOperation("Crear Requerimiento de Licitación")
+    @ApiOperation("Crear Requerimiento de Licitacion")
     public ComandoRespuesta<Long> crear(
     		@RequestBody ComandoPropuesta comandoPropuesta,
     		@PathVariable Long idLicitacion) {
@@ -41,13 +41,13 @@ public class ComandoControladorPropuesta {
     }
     
     @DeleteMapping(value="/{idPropuesta}")
-	@ApiOperation("Eliminar la Propuesta de la Licitación")
+	@ApiOperation("Eliminar la Propuesta de la Licitacion")
 	public void eliminar(@PathVariable Long idLicitacion, @PathVariable Long idPropuesta) {
 		manejadorEliminarPropuesta.ejecutar(idLicitacion, idPropuesta);
 	}
 
 	@PutMapping(value="/{idPropuesta}")
-	@ApiOperation("Actualizar Requerimiento de Licitación")
+	@ApiOperation("Actualizar Requerimiento de Licitacion")
 	public void actualizar(
 			@RequestBody ComandoPropuesta comandoPropuesta,
 			@PathVariable Long idLicitacion,
