@@ -20,7 +20,7 @@ public class ServicioCrearLicitacionRequerimientoTest {
     private static final String LA_LICITACION_NO_EXISTE = "La Licitacion no existe en el sistema";
     private static final String EL_REQUERIMIENTO_NO_EXISTE = "El Requerimiento no existe en el sistema";
     
-	private static final String PESO_PORCENTUAL_DEBE_TENER_UN_VALOR_MAXIMO_DE = "El peso porcentual debe tener un valor máximo de %s";
+	private static final String PESO_PORCENTUAL_DEBE_TENER_UN_VALOR_MAXIMO_DE = "El peso porcentual debe tener un valor maximo de %s";
     private static final String PESO_PORCENTUAL_DEBE_SER_UN_VALOR_POSITIVO = "El peso porcentual debe ser un valor positivo";
     
 	private static final double VALOR_MAXIMO_PESO_PORCENTUAL = 100D;

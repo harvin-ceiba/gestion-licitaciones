@@ -22,7 +22,7 @@ public class Licitacion {
     private static final int LONGITUD_MAXIMA_CODIGO = 25;
     private static final int LONGITUD_MAXIMA_NOMBRE = 125;
     
-    private static final String PRESUPUESTO_DEBE_SER_UN_VALOR_NUMERICO = "El presupuesto debe ser un valor numérico";
+    private static final String PRESUPUESTO_DEBE_SER_UN_VALOR_NUMERICO = "El presupuesto debe ser un valor numerico";
     private static final String PRESUPUESTO_DEBE_SER_UN_VALOR_POSITIVO = "El presupuesto debe ser un valor positivo";
     private static final String FECHA_INICIAL_DEBE_SER_MENOR_A_FECHA_FINAL = "La fecha inicial debe ser menor a la fecha final";
     
