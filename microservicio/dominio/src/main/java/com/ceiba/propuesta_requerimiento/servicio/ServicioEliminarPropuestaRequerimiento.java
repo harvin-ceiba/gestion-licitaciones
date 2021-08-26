@@ -25,10 +25,17 @@ public class ServicioEliminarPropuestaRequerimiento {
     }
 
     public void ejecutar(Long propuestaId, Long requerimientoId) {
+    	validarExistenciaPrevia(propuestaId, requerimientoId);
     	validarExistenciaPropuesta(propuestaId);
     	validarExistenciaRequerimiento(requerimientoId);
-    	validarExistenciaPrevia(propuestaId, requerimientoId);
         this.repositorioPropuestaRequerimiento.eliminar(propuestaId, requerimientoId);
+    }
+    
+    private void validarExistenciaPrevia(Long propuestaId, Long requerimientoId) {
+    	boolean existe = this.repositorioPropuestaRequerimiento.existe(propuestaId, requerimientoId);
+    	if(!existe) {
+    		throw new ExcepcionValorInvalido(EL_REQUERIMIENTO_NO_EXISTE_EN_LA_PROPUESTA);
+    	}
     }
     
     private void validarExistenciaPropuesta(Long propuestaId) {
@@ -45,11 +52,5 @@ public class ServicioEliminarPropuestaRequerimiento {
         }
     }
     
-    private void validarExistenciaPrevia(Long propuestaId, Long requerimientoId) {
-        boolean existe = this.repositorioPropuestaRequerimiento.existe(propuestaId, requerimientoId);
-        if(!existe) {
-            throw new ExcepcionValorInvalido(EL_REQUERIMIENTO_NO_EXISTE_EN_LA_PROPUESTA);
-        }
-    }
 
 }

@@ -26,10 +26,17 @@ public class ServicioCrearPropuestaRequerimiento {
     }
 
     public Long ejecutar(PropuestaRequerimiento propuestaRequerimiento) {
+    	validarExistenciaPrevia(propuestaRequerimiento);
     	validarExistenciaPropuesta(propuestaRequerimiento.getPropuestaId());
     	validarExistenciaRequerimiento(propuestaRequerimiento.getRequerimientoId());
-        validarExistenciaPrevia(propuestaRequerimiento);
         return this.repositorioPropuestaRequerimiento.crear(propuestaRequerimiento);
+    }
+    
+    private void validarExistenciaPrevia(PropuestaRequerimiento propuestaRequerimiento) {
+    	boolean existe = this.repositorioPropuestaRequerimiento.existe(propuestaRequerimiento.getPropuestaId(), propuestaRequerimiento.getRequerimientoId());
+    	if(existe) {
+    		throw new ExcepcionDuplicidad(EL_REQUERIMIENTO_YA_EXISTE_EN_LA_PROPUESTA);
+    	}
     }
     
     private void validarExistenciaPropuesta(Long propuestaId) {
@@ -46,10 +53,4 @@ public class ServicioCrearPropuestaRequerimiento {
         }
     }
 
-    private void validarExistenciaPrevia(PropuestaRequerimiento propuestaRequerimiento) {
-        boolean existe = this.repositorioPropuestaRequerimiento.existe(propuestaRequerimiento.getPropuestaId(), propuestaRequerimiento.getRequerimientoId());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_REQUERIMIENTO_YA_EXISTE_EN_LA_PROPUESTA);
-        }
-    }
 }
