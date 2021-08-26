@@ -15,6 +15,7 @@ public class DtoPropuesta {
 	private String descripcion;
 	private String nombreCliente;
 	private double valor;
+	private double puntaje;
 	private LocalDateTime fechaCreacion;
 	private LocalDateTime fechaPublicacion;
 	private int estado;

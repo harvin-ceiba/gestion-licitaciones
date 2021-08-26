@@ -17,4 +17,11 @@ public interface DaoPropuesta {
      * @return la Propuesta
      */
     DtoPropuesta buscarPorId(Long id);
+    
+    /**
+     * Permite listar las mejores Propuestas de una Licitacion sin un limite
+     * @param licitacionId
+     * @return las Propuestas
+     */
+    List<DtoPropuesta> listarPropuestasEnviadas(Long licitacionId);
 }

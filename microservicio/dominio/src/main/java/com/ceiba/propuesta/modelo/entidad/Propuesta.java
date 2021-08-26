@@ -32,12 +32,13 @@ public class Propuesta {
 	private String descripcion;
 	private String nombreCliente;
 	private double valor;
+	private double puntaje;
 	private LocalDateTime fechaCreacion;
 	private LocalDateTime fechaPublicacion;
 	private int estado;
 
 	public Propuesta(Long id, Long licitacionId, String nombre, String descripcion, String nombreCliente, double valor,
-			LocalDateTime fechaCreacion, LocalDateTime fechaPublicacion, int estado) {
+			double puntaje, LocalDateTime fechaCreacion, LocalDateTime fechaPublicacion, int estado) {
 		
 		validarObligatorio(licitacionId, SE_DEBE_INGRESAR_LA_LICITACION);
 		validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE);
@@ -59,6 +60,7 @@ public class Propuesta {
 		this.descripcion = descripcion;
 		this.nombreCliente = nombreCliente;
 		this.valor = valor;
+		this.puntaje = puntaje;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaPublicacion = fechaPublicacion;
 		this.estado = estado;

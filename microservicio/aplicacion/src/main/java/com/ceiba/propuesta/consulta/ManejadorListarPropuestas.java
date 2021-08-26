@@ -23,4 +23,8 @@ public class ManejadorListarPropuestas {
     public DtoPropuesta buscarPorId(Long id) {
     	return this.daoPropuesta.buscarPorId(id);
     }
+    
+    public List<DtoPropuesta> listarPropuestasEnviadas(Long idLicitacion){ 
+    	return this.daoPropuesta.listarPropuestasEnviadas(idLicitacion); 
+    }
 }

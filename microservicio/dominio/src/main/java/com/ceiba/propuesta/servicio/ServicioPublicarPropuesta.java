@@ -36,10 +36,11 @@ public class ServicioPublicarPropuesta {
     	DtoLicitacion licitacionDto = obtenerLicitacion(propuestaDto.getLicitacionId());
     	validarRangoFechasLicitacion(licitacionDto);
     	validarEstadoLicitacion(licitacionDto);
-        this.repositorioPropuesta.publicar(idPropuesta);
+    	double puntaje = calcularPuntaje(licitacionDto, propuestaDto);
+        this.repositorioPropuesta.publicar(idPropuesta, puntaje);
     }
     
-    private void validarExistenciaPrevia(Long idPropuesta) {
+	private void validarExistenciaPrevia(Long idPropuesta) {
     	boolean existe = this.repositorioPropuesta.existe(idPropuesta);
         if(!existe) {
             throw new ExcepcionValorInvalido(LA_PROPUESTA_NO_EXISTE);
@@ -80,4 +81,8 @@ public class ServicioPublicarPropuesta {
     private Long convertirLocalDateToMilliseconds(LocalDate localDate) {
     	return localDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
+    
+    private double calcularPuntaje(DtoLicitacion licitacionDto, DtoPropuesta propuestaDto) {
+		return 0D;
+	}
 }

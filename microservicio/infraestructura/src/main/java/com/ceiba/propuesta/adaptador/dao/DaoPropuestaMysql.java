@@ -16,10 +16,13 @@ public class DaoPropuestaMysql implements DaoPropuesta {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="propuesta", value="listar")
-    private static String sqlListar;
+    private static String sqlListarPropuestas;
     
     @SqlStatement(namespace="propuesta", value="buscarPorId")
-    private static String sqlBuscarPorId;
+    private static String sqlBuscarPropuestaPorId;
+    
+    @SqlStatement(namespace="propuesta", value="listarEnviadas")
+    private static String sqlListarPropuestasEnviadas;
     
     public DaoPropuestaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -29,14 +32,21 @@ public class DaoPropuestaMysql implements DaoPropuesta {
     public List<DtoPropuesta> listar(Long licitacionId) {
     	MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("licitacionId", licitacionId);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, mapSqlParameterSource, new MapeoPropuesta());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPropuestas, mapSqlParameterSource, new MapeoPropuesta());
     }
 
 	@Override
 	public DtoPropuesta buscarPorId(Long id) {
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("id", id);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarPorId, mapSqlParameterSource, new MapeoPropuesta());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarPropuestaPorId, mapSqlParameterSource, new MapeoPropuesta());
     }
+
+	@Override
+	public List<DtoPropuesta> listarPropuestasEnviadas(Long licitacionId) {
+		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("licitacionId", licitacionId);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPropuestasEnviadas, mapSqlParameterSource, new MapeoPropuesta());
+	}
     
 }

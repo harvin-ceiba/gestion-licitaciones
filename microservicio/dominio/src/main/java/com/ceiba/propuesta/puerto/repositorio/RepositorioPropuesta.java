@@ -50,6 +50,6 @@ public interface RepositorioPropuesta {
      * Permite publicar una Propuesta
      * @param propuesta
      */
-    void publicar(Long id);
+    void publicar(Long id, double puntaje);
 
 }

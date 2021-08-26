@@ -20,6 +20,7 @@ public class MapeoPropuesta implements RowMapper<DtoPropuesta>, MapperResult {
     	String descripcion = resultSet.getString("descripcion");
     	String nombreCliente = resultSet.getString("nombre_cliente");
     	double valor = resultSet.getDouble("valor");
+    	double puntaje = resultSet.getDouble("puntaje");
     	LocalDateTime fechaCreacion = extraerLocalDateTime(resultSet, "fecha_creacion");
     	LocalDateTime fechaPublicacion = extraerLocalDateTime(resultSet, "fecha_publicacion");
     	int estado = resultSet.getInt("estado");
@@ -31,6 +32,7 @@ public class MapeoPropuesta implements RowMapper<DtoPropuesta>, MapperResult {
         	descripcion, 
         	nombreCliente, 
         	valor, 
+        	puntaje,
         	fechaCreacion, 
         	fechaPublicacion, 
         	estado

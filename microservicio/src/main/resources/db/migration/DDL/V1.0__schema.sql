@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS propuesta (
   descripcion TEXT NOT NULL,
   nombre_cliente VARCHAR(125) NOT NULL,
   valor DECIMAL NOT NULL,
+  puntaje DECIMAL NOT NULL DEFAULT 0,
   fecha_creacion datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   fecha_publicacion datetime null,
   estado TINYINT(1) NOT NULL DEFAULT 0,

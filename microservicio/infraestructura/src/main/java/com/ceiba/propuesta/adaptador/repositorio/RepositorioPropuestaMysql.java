@@ -79,9 +79,10 @@ public class RepositorioPropuestaMysql implements RepositorioPropuesta {
 	}
 	
 	@Override
-    public void publicar(Long id) {
+    public void publicar(Long id, double puntaje) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
+        paramSource.addValue("puntaje", puntaje);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlPublicarPropuesta, paramSource);
     }
 
