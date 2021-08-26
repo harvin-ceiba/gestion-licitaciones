@@ -81,7 +81,7 @@ pipeline {
     }
     success {
       echo 'This will run only if successful'
-      // junit '**/test-results/test/*.xml' // Ruta de los archivos.XML
+      junit '**/test-results/test/*.xml' // Ruta de los archivos.XML
     }
     failure {
       echo 'This will run only if failed'

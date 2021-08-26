@@ -10,11 +10,13 @@ import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.licitacion.modelo.dto.DtoLicitacion;
 import com.ceiba.licitacion.puerto.dao.DaoLicitacion;
+import com.ceiba.licitacion_requerimiento.puerto.dao.DaoLicitacionRequerimiento;
 import com.ceiba.propuesta.modelo.dto.DtoPropuesta;
 import com.ceiba.propuesta.puerto.dao.DaoPropuesta;
 import com.ceiba.propuesta.puerto.repositorio.RepositorioPropuesta;
 import com.ceiba.propuesta.testdatabuilder.DtoLicitacionTestDataBuilder;
 import com.ceiba.propuesta.testdatabuilder.DtoPropuestaTestDataBuilder;
+import com.ceiba.propuesta_requerimiento.puerto.dao.DaoPropuestaRequerimiento;
 
 public class ServicioPublicarPropuestaTest {
 
@@ -39,12 +41,15 @@ public class ServicioPublicarPropuestaTest {
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         DaoPropuesta daoPropuesta = Mockito.mock(DaoPropuesta.class);
         DaoLicitacion daoLicitacion = Mockito.mock(DaoLicitacion.class);
+        DaoPropuestaRequerimiento daoPropuestaRequerimiento = Mockito.mock(DaoPropuestaRequerimiento.class);
+        DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
         
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoPropuesta.buscarPorId(Mockito.anyLong())).thenReturn(dtoPropuesta);
         Mockito.when(daoLicitacion.buscarPorId(Mockito.anyLong())).thenReturn(dtoLicitacion);
         
-        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
+        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(
+        		repositorioPropuesta, daoPropuesta, daoLicitacion, daoPropuestaRequerimiento, daoLicitacionRequerimiento);
         // act - assert
         Assertions.assertDoesNotThrow(() -> servicioPublicarPropuesta.ejecutar(VALOR_ID_PROPUESTA));
     }
@@ -55,8 +60,12 @@ public class ServicioPublicarPropuestaTest {
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         DaoPropuesta daoPropuesta = Mockito.mock(DaoPropuesta.class);
         DaoLicitacion daoLicitacion = Mockito.mock(DaoLicitacion.class);
+        DaoPropuestaRequerimiento daoPropuestaRequerimiento = Mockito.mock(DaoPropuestaRequerimiento.class);
+        DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
+        
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(false);
-        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
+        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(
+        		repositorioPropuesta, daoPropuesta, daoLicitacion, daoPropuestaRequerimiento, daoLicitacionRequerimiento);
         // act - assert
         BasePrueba.assertThrows(() -> servicioPublicarPropuesta.ejecutar(VALOR_ID_PROPUESTA), ExcepcionValorInvalido.class, LA_PROPUESTA_NO_EXISTE);
     }
@@ -67,10 +76,13 @@ public class ServicioPublicarPropuestaTest {
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         DaoPropuesta daoPropuesta = Mockito.mock(DaoPropuesta.class);
         DaoLicitacion daoLicitacion = Mockito.mock(DaoLicitacion.class);
+        DaoPropuestaRequerimiento daoPropuestaRequerimiento = Mockito.mock(DaoPropuestaRequerimiento.class);
+        DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
 
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoPropuesta.buscarPorId(Mockito.anyLong())).thenReturn(null);
-        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
+        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(
+        		repositorioPropuesta, daoPropuesta, daoLicitacion, daoPropuestaRequerimiento, daoLicitacionRequerimiento);
         // act - assert
         BasePrueba.assertThrows(() -> servicioPublicarPropuesta.ejecutar(VALOR_ID_PROPUESTA), ExcepcionValorInvalido.class, LA_PROPUESTA_NO_EXISTE);
     }
@@ -83,11 +95,14 @@ public class ServicioPublicarPropuestaTest {
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         DaoPropuesta daoPropuesta = Mockito.mock(DaoPropuesta.class);
         DaoLicitacion daoLicitacion = Mockito.mock(DaoLicitacion.class);
+        DaoPropuestaRequerimiento daoPropuestaRequerimiento = Mockito.mock(DaoPropuestaRequerimiento.class);
+        DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
 
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoPropuesta.buscarPorId(Mockito.anyLong())).thenReturn(dtoPropuesta);
         Mockito.when(daoLicitacion.buscarPorId(Mockito.anyLong())).thenReturn(null);
-        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
+        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(
+        		repositorioPropuesta, daoPropuesta, daoLicitacion, daoPropuestaRequerimiento, daoLicitacionRequerimiento);
         // act - assert
         BasePrueba.assertThrows(() -> servicioPublicarPropuesta.ejecutar(VALOR_ID_PROPUESTA), ExcepcionValorInvalido.class, LA_LICITACION_NO_EXISTE);
     }
@@ -100,14 +115,18 @@ public class ServicioPublicarPropuestaTest {
     			.withFechaInicio(VALOR_FECHA_INICIO_FUERA_RANGO)
     			.withFechaFin(VALOR_FECHA_FIN_FUERA_RANGO)
     			.build();
+    	
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         DaoPropuesta daoPropuesta = Mockito.mock(DaoPropuesta.class);
         DaoLicitacion daoLicitacion = Mockito.mock(DaoLicitacion.class);
+        DaoPropuestaRequerimiento daoPropuestaRequerimiento = Mockito.mock(DaoPropuestaRequerimiento.class);
+        DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
 
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoPropuesta.buscarPorId(Mockito.anyLong())).thenReturn(dtoPropuesta);
         Mockito.when(daoLicitacion.buscarPorId(Mockito.anyLong())).thenReturn(dtoLicitacion);
-        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
+        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(
+        		repositorioPropuesta, daoPropuesta, daoLicitacion, daoPropuestaRequerimiento, daoLicitacionRequerimiento);
         // act - assert
         BasePrueba.assertThrows(() -> servicioPublicarPropuesta.ejecutar(VALOR_ID_PROPUESTA), 
         		ExcepcionValorInvalido.class, LA_PROPUESTA_NO_SE_ENCUENTRA_DENTRO_DEL_RANGO_DE_LICITACION);
@@ -122,12 +141,15 @@ public class ServicioPublicarPropuestaTest {
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         DaoPropuesta daoPropuesta = Mockito.mock(DaoPropuesta.class);
         DaoLicitacion daoLicitacion = Mockito.mock(DaoLicitacion.class);
+        DaoPropuestaRequerimiento daoPropuestaRequerimiento = Mockito.mock(DaoPropuestaRequerimiento.class);
+        DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
         
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoPropuesta.buscarPorId(Mockito.anyLong())).thenReturn(dtoPropuesta);
         Mockito.when(daoLicitacion.buscarPorId(Mockito.anyLong())).thenReturn(dtoLicitacion);
         
-        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(repositorioPropuesta, daoPropuesta, daoLicitacion);
+        ServicioPublicarPropuesta servicioPublicarPropuesta = new ServicioPublicarPropuesta(
+        		repositorioPropuesta, daoPropuesta, daoLicitacion, daoPropuestaRequerimiento, daoLicitacionRequerimiento);
         // act - assert
         BasePrueba.assertThrows(() -> servicioPublicarPropuesta.ejecutar(VALOR_ID_PROPUESTA), 
         		ExcepcionValorInvalido.class, LA_LICITACION_NO_SE_ENCUENTRA_ACTIVA);
