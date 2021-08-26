@@ -14,7 +14,7 @@ public class ServicioPublicarLicitacion {
     private static final String LA_LICITACION_NO_EXISTE = "La licitación que intenta publicar no existe";
     private static final String LA_LICITACION_NO_SE_PUEDE_PUBLICAR_SIN_REQUERIMIENTOS = "La licitación no se puede publicar sin requerimientos";
     private static final String LA_SUMATORIA_DE_LOS_PORCENTAJES_DE_LICITACION_DEBE_SER_IGUAL_A = "La licitación no se puede publicar, el porcentaje de los requerimientos debe ser igual a %s";
-    private static final double SUMATORIA_PESO_PORCENTUAL = 100.0;
+    private static final double SUMATORIA_PESO_PORCENTUAL = 100D;
     
     private final RepositorioLicitacion repositorioLicitacion;
     private final DaoLicitacionRequerimiento daoLicitacionRequerimiento;
@@ -28,7 +28,7 @@ public class ServicioPublicarLicitacion {
 
     public void ejecutar(Long id) {
     	validarExistenciaPrevia(id);
-    	List<DtoLicitacionRequerimiento> licitacionRequerimientos = obtenerRequerimientos(id);
+    	List<DtoLicitacionRequerimiento> licitacionRequerimientos = listarRequerimientos(id);
     	validarRequerimientos(licitacionRequerimientos);
     	validarRequerimientosPesoPorcentual(licitacionRequerimientos);
         this.repositorioLicitacion.publicar(id);
@@ -41,7 +41,7 @@ public class ServicioPublicarLicitacion {
         }
     }
     
-    private List<DtoLicitacionRequerimiento> obtenerRequerimientos(Long idLicitacion) {
+    private List<DtoLicitacionRequerimiento> listarRequerimientos(Long idLicitacion) {
     	return this.daoLicitacionRequerimiento.listar(idLicitacion);
     }
     
