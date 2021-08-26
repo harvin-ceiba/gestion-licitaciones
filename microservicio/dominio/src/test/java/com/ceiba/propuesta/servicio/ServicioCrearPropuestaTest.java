@@ -24,7 +24,7 @@ public class ServicioCrearPropuestaTest {
         Propuesta propuesta = new PropuestaTestDataBuilder().build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong(), Mockito.anyString())).thenReturn(false);
         ServicioCrearPropuesta servicioCrearPropuesta = new ServicioCrearPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert
@@ -37,7 +37,7 @@ public class ServicioCrearPropuestaTest {
 		Propuesta propuesta = new PropuestaTestDataBuilder().build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(false);
         ServicioCrearPropuesta servicioCrearPropuesta = new ServicioCrearPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearPropuesta.ejecutar(propuesta), ExcepcionValorInvalido.class, LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA);
@@ -49,7 +49,7 @@ public class ServicioCrearPropuestaTest {
 		Propuesta propuesta = new PropuestaTestDataBuilder().build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong(), Mockito.anyString())).thenReturn(true);
         ServicioCrearPropuesta servicioCrearPropuesta = new ServicioCrearPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert

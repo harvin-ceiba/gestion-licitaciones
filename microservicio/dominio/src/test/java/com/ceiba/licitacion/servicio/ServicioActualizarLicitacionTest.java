@@ -23,7 +23,7 @@ public class ServicioActualizarLicitacionTest {
 		// arrange
         Licitacion licitacion = new LicitacionTestDataBuilder().withId(VALOR_ID).build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioLicitacion.existeExcluyendoId(Mockito.anyLong(), Mockito.anyString())).thenReturn(false);
         ServicioActualizarLicitacion servicioActualizarLicitacion = new ServicioActualizarLicitacion(repositorioLicitacion);
         // act - assert
@@ -35,7 +35,7 @@ public class ServicioActualizarLicitacionTest {
 		// arrange
         Licitacion licitacion = new LicitacionTestDataBuilder().withId(VALOR_ID).build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(false);
         ServicioActualizarLicitacion servicioActualizarLicitacion = new ServicioActualizarLicitacion(repositorioLicitacion);
         // act - assert
         BasePrueba.assertThrows(() -> servicioActualizarLicitacion.ejecutar(licitacion), ExcepcionValorInvalido.class, LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA);
@@ -46,7 +46,7 @@ public class ServicioActualizarLicitacionTest {
 		// arrange
         Licitacion licitacion = new LicitacionTestDataBuilder().withId(VALOR_ID).build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioLicitacion.existeExcluyendoId(Mockito.anyLong(), Mockito.anyString())).thenReturn(true);
         ServicioActualizarLicitacion servicioActualizarLicitacion = new ServicioActualizarLicitacion(repositorioLicitacion);
         // act - assert

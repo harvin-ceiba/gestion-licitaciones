@@ -50,7 +50,7 @@ public class RepositorioLicitacionMysql implements RepositorioLicitacion {
     }
     
     @Override
-    public boolean existeId(Long id) {
+    public boolean existe(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);

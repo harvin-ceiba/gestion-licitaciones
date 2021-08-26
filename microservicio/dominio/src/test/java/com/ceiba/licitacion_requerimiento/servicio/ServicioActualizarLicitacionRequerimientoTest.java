@@ -29,7 +29,7 @@ public class ServicioActualizarLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioRequerimiento.existe(Mockito.anyLong())).thenReturn(true);
         
         ServicioActualizarLicitacionRequerimiento servicioActualizarLicitacionRequerimiento = new ServicioActualizarLicitacionRequerimiento(
@@ -69,7 +69,7 @@ public class ServicioActualizarLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(false);
         
         ServicioActualizarLicitacionRequerimiento servicioActualizarLicitacionRequerimiento = new ServicioActualizarLicitacionRequerimiento(
         		repositorioLicitacionRequerimiento, repositorioLicitacion, repositorioRequerimiento);
@@ -88,7 +88,7 @@ public class ServicioActualizarLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioRequerimiento.existe(Mockito.anyLong())).thenReturn(false);
         
         ServicioActualizarLicitacionRequerimiento servicioActualizarLicitacionRequerimiento = new ServicioActualizarLicitacionRequerimiento(

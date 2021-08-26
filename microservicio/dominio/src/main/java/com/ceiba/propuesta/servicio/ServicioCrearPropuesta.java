@@ -26,7 +26,7 @@ public class ServicioCrearPropuesta {
     }
     
     private void validarExistenciaLicitacion(Long licitacionId) {
-        boolean existe = this.repositorioLicitacion.existeId(licitacionId);
+        boolean existe = this.repositorioLicitacion.existe(licitacionId);
         if(!existe) {
             throw new ExcepcionValorInvalido(LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA);
         }

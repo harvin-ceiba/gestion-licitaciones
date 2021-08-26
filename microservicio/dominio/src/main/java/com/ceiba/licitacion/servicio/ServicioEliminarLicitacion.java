@@ -19,7 +19,7 @@ public class ServicioEliminarLicitacion {
     }
     
     private void validarExistenciaId(Long idPropuesta) {
-    	boolean existe = this.repositorioLicitacion.existeId(idPropuesta);
+    	boolean existe = this.repositorioLicitacion.existe(idPropuesta);
         if(!existe) {
             throw new ExcepcionValorInvalido(LA_LICITACION_NO_EXISTE_EN_EL_SISTEMA);
         }

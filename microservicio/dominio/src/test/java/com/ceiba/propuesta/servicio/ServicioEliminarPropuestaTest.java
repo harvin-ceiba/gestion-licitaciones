@@ -22,7 +22,7 @@ public class ServicioEliminarPropuestaTest {
         Propuesta propuesta = new PropuestaTestDataBuilder().build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(true);
         ServicioEliminarPropuesta servicioEliminarPropuesta = new ServicioEliminarPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert
@@ -35,7 +35,7 @@ public class ServicioEliminarPropuestaTest {
         Propuesta propuesta = new PropuestaTestDataBuilder().build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(false);
         ServicioEliminarPropuesta servicioEliminarPropuesta = new ServicioEliminarPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert
         BasePrueba.assertThrows(() -> servicioEliminarPropuesta.ejecutar(propuesta.getLicitacionId(), propuesta.getId()), 
@@ -48,7 +48,7 @@ public class ServicioEliminarPropuestaTest {
         Propuesta propuesta = new PropuestaTestDataBuilder().build();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioPropuesta.existe(Mockito.anyLong())).thenReturn(false);
         ServicioEliminarPropuesta servicioEliminarPropuesta = new ServicioEliminarPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert

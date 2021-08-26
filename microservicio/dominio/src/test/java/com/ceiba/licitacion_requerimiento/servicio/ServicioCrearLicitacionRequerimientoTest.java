@@ -37,7 +37,7 @@ public class ServicioCrearLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(false);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioRequerimiento.existe(Mockito.anyLong())).thenReturn(true);
         
         ServicioCrearLicitacionRequerimiento servicioCrearLicitacionRequerimiento = new ServicioCrearLicitacionRequerimiento(
@@ -96,7 +96,7 @@ public class ServicioCrearLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(false);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(false);
         
         ServicioCrearLicitacionRequerimiento servicioCrearLicitacionRequerimiento = new ServicioCrearLicitacionRequerimiento(
         		repositorioLicitacionRequerimiento, repositorioLicitacion, repositorioRequerimiento);
@@ -115,7 +115,7 @@ public class ServicioCrearLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(false);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioRequerimiento.existe(Mockito.anyLong())).thenReturn(false);
         
         ServicioCrearLicitacionRequerimiento servicioCrearLicitacionRequerimiento = new ServicioCrearLicitacionRequerimiento(

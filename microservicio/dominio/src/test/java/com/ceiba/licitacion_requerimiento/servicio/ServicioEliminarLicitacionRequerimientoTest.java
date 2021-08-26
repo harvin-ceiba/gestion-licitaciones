@@ -25,7 +25,7 @@ public class ServicioEliminarLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioRequerimiento.existe(Mockito.anyLong())).thenReturn(true);
         
         ServicioEliminarLicitacionRequerimiento servicioEliminarLicitacionRequerimiento = new ServicioEliminarLicitacionRequerimiento(
@@ -61,7 +61,7 @@ public class ServicioEliminarLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(false);
         
         ServicioEliminarLicitacionRequerimiento servicioEliminarLicitacionRequerimiento = new ServicioEliminarLicitacionRequerimiento(
         		repositorioLicitacionRequerimiento, repositorioLicitacion, repositorioRequerimiento);
@@ -78,7 +78,7 @@ public class ServicioEliminarLicitacionRequerimientoTest {
         RepositorioRequerimiento repositorioRequerimiento = Mockito.mock(RepositorioRequerimiento.class);
         
         Mockito.when(repositorioLicitacionRequerimiento.existe(Mockito.anyLong(), Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioRequerimiento.existe(Mockito.anyLong())).thenReturn(false);
         
         ServicioEliminarLicitacionRequerimiento servicioEliminarLicitacionRequerimiento = new ServicioEliminarLicitacionRequerimiento(

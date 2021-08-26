@@ -48,7 +48,7 @@ public class ServicioPublicarLicitacionTest {
     	
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoLicitacionRequerimiento.listar(VALOR_ID)).thenReturn(licitacionRequerimientos);
         
         ServicioPublicarLicitacion servicioPublicarLicitacion = new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
@@ -61,7 +61,7 @@ public class ServicioPublicarLicitacionTest {
 		// arrange
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(false);
         ServicioPublicarLicitacion servicioPublicarLicitacion = new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
         // act - assert
         BasePrueba.assertThrows(() -> servicioPublicarLicitacion.ejecutar(VALOR_ID), ExcepcionValorInvalido.class, LA_LICITACION_NO_EXISTE);
@@ -72,7 +72,7 @@ public class ServicioPublicarLicitacionTest {
 		// arrange
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoLicitacionRequerimiento.listar(VALOR_ID)).thenReturn(null);
         ServicioPublicarLicitacion servicioPublicarLicitacion = new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
 
@@ -86,7 +86,7 @@ public class ServicioPublicarLicitacionTest {
     	List<DtoLicitacionRequerimiento> licitacionRequerimientos = new ArrayList<>();
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoLicitacionRequerimiento.listar(VALOR_ID)).thenReturn(licitacionRequerimientos);
         ServicioPublicarLicitacion servicioPublicarLicitacion = new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
 
@@ -108,7 +108,7 @@ public class ServicioPublicarLicitacionTest {
     	licitacionRequerimientos.add(requerimiento2);
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoLicitacionRequerimiento.listar(VALOR_ID)).thenReturn(licitacionRequerimientos);
         ServicioPublicarLicitacion servicioPublicarLicitacion = new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
 
@@ -131,7 +131,7 @@ public class ServicioPublicarLicitacionTest {
     	licitacionRequerimientos.add(requerimiento2);
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         DaoLicitacionRequerimiento daoLicitacionRequerimiento = Mockito.mock(DaoLicitacionRequerimiento.class);
-        Mockito.when(repositorioLicitacion.existeId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoLicitacionRequerimiento.listar(VALOR_ID)).thenReturn(licitacionRequerimientos);
         ServicioPublicarLicitacion servicioPublicarLicitacion = new ServicioPublicarLicitacion(repositorioLicitacion, daoLicitacionRequerimiento);
         // act - assert

@@ -42,7 +42,7 @@ public interface RepositorioLicitacion {
      * @param id
      * @return si existe o no
      */
-    boolean existeId(Long id);
+    boolean existe(Long id);
     
     /**
      * Permite publicar una licitacion

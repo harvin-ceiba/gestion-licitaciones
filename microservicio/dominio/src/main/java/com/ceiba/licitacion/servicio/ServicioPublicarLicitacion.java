@@ -35,7 +35,7 @@ public class ServicioPublicarLicitacion {
     }
     
     private void validarExistenciaPrevia(Long idLicitacion) {
-    	boolean existe = this.repositorioLicitacion.existeId(idLicitacion);
+    	boolean existe = this.repositorioLicitacion.existe(idLicitacion);
         if(!existe) {
             throw new ExcepcionValorInvalido(LA_LICITACION_NO_EXISTE);
         }
