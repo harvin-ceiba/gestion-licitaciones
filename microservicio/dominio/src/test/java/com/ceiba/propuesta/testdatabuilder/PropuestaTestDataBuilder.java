@@ -9,7 +9,6 @@ public class PropuestaTestDataBuilder {
 	
 	private static final Long VALOR_LICITACION_ID = 1L;
 	private static final double VALOR_PROPUESTA = 10000000D;
-	private static final double VALOR_PUNTAJE = 0D;
 	private static final int VALOR_ESTADO = 0;
 
 	private Long id;
@@ -18,7 +17,6 @@ public class PropuestaTestDataBuilder {
 	private String descripcion;
 	private String nombreCliente;
 	private double valor;
-	private double puntaje;
 	private LocalDateTime fechaCreacion;
 	private LocalDateTime fechaPublicacion;
 	private int estado;
@@ -29,12 +27,11 @@ public class PropuestaTestDataBuilder {
     	descripcion = UUID.randomUUID().toString();
     	nombreCliente = UUID.randomUUID().toString();
     	valor = VALOR_PROPUESTA;
-    	puntaje = VALOR_PUNTAJE;
     	estado = VALOR_ESTADO;
     }
     
     public Propuesta build() {
-        return new Propuesta(id, licitacionId, nombre, descripcion, nombreCliente, valor, puntaje, fechaCreacion, fechaPublicacion, estado);
+        return new Propuesta(id, licitacionId, nombre, descripcion, nombreCliente, valor, fechaCreacion, fechaPublicacion, estado);
         		
     }
 	

@@ -16,7 +16,6 @@ public class FabricaPropuesta {
     		comandoPropuesta.getDescripcion(), 
     		comandoPropuesta.getNombreCliente(), 
     		comandoPropuesta.getValor(), 
-    		comandoPropuesta.getPuntaje(), 
     		comandoPropuesta.getFechaCreacion(), 
     		comandoPropuesta.getFechaPublicacion(), 
     		comandoPropuesta.getEstado()
