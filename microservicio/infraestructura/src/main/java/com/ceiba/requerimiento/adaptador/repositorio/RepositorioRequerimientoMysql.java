@@ -13,22 +13,22 @@ public class RepositorioRequerimientoMysql implements RepositorioRequerimiento {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="requerimiento", value="crear")
-    private static String sqlCrear;
+    private static String sqlCrearRequerimiento;
 
     @SqlStatement(namespace="requerimiento", value="actualizar")
-    private static String sqlActualizar;
+    private static String sqlActualizarRequerimiento;
 
     @SqlStatement(namespace="requerimiento", value="eliminar")
-    private static String sqlEliminar;
+    private static String sqlEliminarRequerimiento;
     
     @SqlStatement(namespace="requerimiento", value="existe")
-    private static String sqlExiste;
+    private static String sqlExisteRequerimiento;
 
     @SqlStatement(namespace="requerimiento", value="existeDescripcion")
-    private static String sqlExisteDescripcion;
+    private static String sqlExisteDescripcionRequerimiento;
 
     @SqlStatement(namespace="requerimiento", value="existeExcluyendoId") 
-    private static String sqlExisteExcluyendoId;
+    private static String sqlExisteRequerimientoExcluyendoId;
 
     public RepositorioRequerimientoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -36,33 +36,33 @@ public class RepositorioRequerimientoMysql implements RepositorioRequerimiento {
 
     @Override
     public Long crear(Requerimiento requerimiento) {
-        return this.customNamedParameterJdbcTemplate.crear(requerimiento, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(requerimiento, sqlCrearRequerimiento);
     }
 
     @Override
     public void eliminar(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarRequerimiento, paramSource);
     }
     
     @Override
     public boolean existe(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteRequerimiento,paramSource, Boolean.class);
     }
 
     @Override
     public boolean existe(String descripcion) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("descripcion", descripcion);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteDescripcion,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteDescripcionRequerimiento,paramSource, Boolean.class);
     }
 
     @Override
     public void actualizar(Requerimiento requerimiento) {
-        this.customNamedParameterJdbcTemplate.actualizar(requerimiento, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(requerimiento, sqlActualizarRequerimiento);
     }
 
     @Override
@@ -70,6 +70,6 @@ public class RepositorioRequerimientoMysql implements RepositorioRequerimiento {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
         paramSource.addValue("descripcion", descripcion);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteRequerimientoExcluyendoId,paramSource, Boolean.class);
     }
 }

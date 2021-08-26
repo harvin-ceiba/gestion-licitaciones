@@ -25,7 +25,7 @@ public class ServicioCrearPropuestaTest {
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioPropuesta.existe(Mockito.anyLong(), Mockito.anyString())).thenReturn(false);
+        Mockito.when(repositorioPropuesta.existeIncluyendoIdLicitacion(Mockito.anyLong(), Mockito.anyString())).thenReturn(false);
         ServicioCrearPropuesta servicioCrearPropuesta = new ServicioCrearPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert
         Assertions.assertDoesNotThrow(() -> servicioCrearPropuesta.ejecutar(propuesta));
@@ -50,7 +50,7 @@ public class ServicioCrearPropuestaTest {
         RepositorioLicitacion repositorioLicitacion = Mockito.mock(RepositorioLicitacion.class);
         RepositorioPropuesta repositorioPropuesta = Mockito.mock(RepositorioPropuesta.class);
         Mockito.when(repositorioLicitacion.existe(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioPropuesta.existe(Mockito.anyLong(), Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioPropuesta.existeIncluyendoIdLicitacion(Mockito.anyLong(), Mockito.anyString())).thenReturn(true);
         ServicioCrearPropuesta servicioCrearPropuesta = new ServicioCrearPropuesta(repositorioPropuesta, repositorioLicitacion);
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearPropuesta.ejecutar(propuesta), ExcepcionDuplicidad.class, LA_PROPUESTA_YA_EXISTE_EN_EL_SISTEMA);

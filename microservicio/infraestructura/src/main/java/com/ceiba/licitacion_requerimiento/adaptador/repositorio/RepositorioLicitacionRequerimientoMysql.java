@@ -13,16 +13,16 @@ public class RepositorioLicitacionRequerimientoMysql implements RepositorioLicit
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="licitacion_requerimiento", value="crear")
-    private static String sqlCrear;
+    private static String sqlCrearLicitacionRequerimiento;
 
     @SqlStatement(namespace="licitacion_requerimiento", value="actualizar")
-    private static String sqlActualizar;
+    private static String sqlActualizarLicitacionRequerimiento;
 
     @SqlStatement(namespace="licitacion_requerimiento", value="eliminar")
-    private static String sqlEliminar;
+    private static String sqlEliminarLicitacionRequerimiento;
 
     @SqlStatement(namespace="licitacion_requerimiento", value="existe")
-    private static String sqlExiste;
+    private static String sqlExisteLicitacionRequerimiento;
 
     public RepositorioLicitacionRequerimientoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -30,7 +30,7 @@ public class RepositorioLicitacionRequerimientoMysql implements RepositorioLicit
 
     @Override
     public Long crear(LicitacionRequerimiento licitacionRequerimiento) {
-        return this.customNamedParameterJdbcTemplate.crear(licitacionRequerimiento, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(licitacionRequerimiento, sqlCrearLicitacionRequerimiento);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class RepositorioLicitacionRequerimientoMysql implements RepositorioLicit
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("licitacionId", licitacionId);
         paramSource.addValue("requerimientoId", requerimientoId);
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarLicitacionRequerimiento, paramSource);
     }
 
     @Override
@@ -46,12 +46,12 @@ public class RepositorioLicitacionRequerimientoMysql implements RepositorioLicit
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("licitacionId", licitacionId);
         paramSource.addValue("requerimientoId", requerimientoId);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteLicitacionRequerimiento,paramSource, Boolean.class);
     }
 
     @Override
     public void actualizar(LicitacionRequerimiento licitacionRequerimiento) {
-        this.customNamedParameterJdbcTemplate.actualizar(licitacionRequerimiento, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(licitacionRequerimiento, sqlActualizarLicitacionRequerimiento);
     }
 
 }

@@ -14,13 +14,13 @@ public class RepositorioPropuestaRequerimientoMysql implements RepositorioPropue
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="propuesta_requerimiento", value="crear")
-    private static String sqlCrear;
+    private static String sqlCrearPropuestaRequerimiento;
 
     @SqlStatement(namespace="propuesta_requerimiento", value="eliminar")
-    private static String sqlEliminar;
+    private static String sqlEliminarPropuestaRequerimiento;
 
     @SqlStatement(namespace="propuesta_requerimiento", value="existe")
-    private static String sqlExiste;
+    private static String sqlExistePropuestaRequerimiento;
 
     public RepositorioPropuestaRequerimientoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -28,7 +28,7 @@ public class RepositorioPropuestaRequerimientoMysql implements RepositorioPropue
 
     @Override
     public Long crear(PropuestaRequerimiento propuestaRequerimiento) {
-        return this.customNamedParameterJdbcTemplate.crear(propuestaRequerimiento, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(propuestaRequerimiento, sqlCrearPropuestaRequerimiento);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class RepositorioPropuestaRequerimientoMysql implements RepositorioPropue
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("propuestaId", propuestaId);
         paramSource.addValue("requerimientoId", requerimientoId);
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarPropuestaRequerimiento, paramSource);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class RepositorioPropuestaRequerimientoMysql implements RepositorioPropue
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("propuestaId", licitacionId);
         paramSource.addValue("requerimientoId", requerimientoId);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePropuestaRequerimiento,paramSource, Boolean.class);
     }
 
 }

@@ -36,7 +36,7 @@ public interface RepositorioPropuesta {
      * @param nombre
      * @return si existe o no
      */
-    boolean existe(Long licitacionId, String nombre);
+    boolean existeIncluyendoIdLicitacion(Long licitacionId, String nombre);
 
     /**
      * Permite validar si existe una Propuesta de una Licitación con un codigo excluyendo un id

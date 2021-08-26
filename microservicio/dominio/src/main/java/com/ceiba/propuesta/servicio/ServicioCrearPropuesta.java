@@ -33,7 +33,7 @@ public class ServicioCrearPropuesta {
     }
 
     private void validarExistenciaPrevia(Propuesta propuesta) {
-        boolean existe = this.repositorioPropuesta.existe(propuesta.getLicitacionId(), propuesta.getNombre());
+        boolean existe = this.repositorioPropuesta.existeIncluyendoIdLicitacion(propuesta.getLicitacionId(), propuesta.getNombre());
         if(existe) {
             throw new ExcepcionDuplicidad(LA_PROPUESTA_YA_EXISTE_EN_EL_SISTEMA);
         }
