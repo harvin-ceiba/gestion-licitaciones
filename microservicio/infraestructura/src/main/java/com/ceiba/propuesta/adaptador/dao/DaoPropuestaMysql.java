@@ -18,18 +18,27 @@ public class DaoPropuestaMysql implements DaoPropuesta {
     @SqlStatement(namespace="propuesta", value="listar")
     private static String sqlListarPropuestas;
     
+    @SqlStatement(namespace="propuesta", value="listarPorIdLicitacion")
+    private static String sqlListarPropuestasPorLicitacion;
+    
     @SqlStatement(namespace="propuesta", value="buscarPorId")
     private static String sqlBuscarPropuestaPorId;
     
     public DaoPropuestaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
+    
+    @Override
+    public List<DtoPropuesta> listar() {
+    	MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPropuestas, mapSqlParameterSource, new MapeoPropuesta());
+    }
 
     @Override
-    public List<DtoPropuesta> listar(Long licitacionId) {
+    public List<DtoPropuesta> listarPorIdLicitacion(Long licitacionId) {
     	MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("licitacionId", licitacionId);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPropuestas, mapSqlParameterSource, new MapeoPropuesta());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPropuestasPorLicitacion, mapSqlParameterSource, new MapeoPropuesta());
     }
 
 	@Override

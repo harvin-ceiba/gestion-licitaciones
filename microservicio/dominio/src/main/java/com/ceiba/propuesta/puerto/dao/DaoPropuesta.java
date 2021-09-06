@@ -6,11 +6,17 @@ import java.util.List;
 
 public interface DaoPropuesta {
 
+	/**
+     * Permite listar Propuestas
+     * @return las Propuestas
+     */
+    List<DtoPropuesta> listar();
+    
     /**
      * Permite listar Propuestas de una Licitacion
      * @return las Propuestas
      */
-    List<DtoPropuesta> listar(Long licitacionId);
+    List<DtoPropuesta> listarPorIdLicitacion(Long licitacionId);
     
     /**
      * Permite buscar una Propuesta por Id

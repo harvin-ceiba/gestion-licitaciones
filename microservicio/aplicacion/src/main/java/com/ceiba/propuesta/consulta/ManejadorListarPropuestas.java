@@ -15,9 +15,13 @@ public class ManejadorListarPropuestas {
     public ManejadorListarPropuestas(DaoPropuesta daoPropuesta){
         this.daoPropuesta = daoPropuesta;
     }
+    
+    public List<DtoPropuesta> listar(){ 
+    	return this.daoPropuesta.listar(); 
+    }
 
-    public List<DtoPropuesta> listar(Long idLicitacion){ 
-    	return this.daoPropuesta.listar(idLicitacion); 
+    public List<DtoPropuesta> listarPorIdLicitacion(Long idLicitacion){ 
+    	return this.daoPropuesta.listarPorIdLicitacion(idLicitacion); 
     }
     
     public DtoPropuesta buscarPorId(Long id) {

@@ -3,6 +3,7 @@ package com.ceiba.licitacion.controlador.testdatabuilder;
 import com.ceiba.licitacion.comando.ComandoLicitacion;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.UUID;
 
 public class ComandoLicitacionTestDataBuilder {
@@ -10,8 +11,8 @@ public class ComandoLicitacionTestDataBuilder {
 	private static final String VALOR_CODIGO = "001";
 	private static final int VALOR_ESTADO = 0;
 	private static final double VALOR_PRESUPUESTO = 10000000;
-	private static final LocalDate VALOR_FECHA_INICIAL = LocalDate.of(2021, 8, 1);
-	private static final LocalDate VALOR_FECHA_FINAL = LocalDate.of(2021, 8, 31);
+	private static final LocalDate VALOR_FECHA_INICIAL = YearMonth.now().atDay(1);
+	private static final LocalDate VALOR_FECHA_FINAL = YearMonth.now().atEndOfMonth();
 
 	private Long id;
 	private String codigo;
